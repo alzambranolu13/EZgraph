@@ -1,3 +1,4 @@
+import queue
 from queue import PriorityQueue
 from collections import deque
 
@@ -112,8 +113,27 @@ class DirectedWeightedGraph:
                         return True
         return False
     
-    def topSort ( self ):
-        
+    def topSort ( self ): # TODO: test
+        q = queue.Queue()
+        inDegree = [0] * self.nodes
+        for node1 in range( self.nodes ):
+            for edge in self.adjacencyList[node1]:
+                node2 = edge[0]
+                weight = edge[1]
+                inDegree[node2] = inDegree[node2]+1
+        topOrder = []
+        for node in range( self.nodes ):
+            if( inDegree[node] == 0 ):
+                q.put( node )
+        while( q.empty() == False ):
+            currNode = q.get()
+            topOrder.append( currNode )
+            for edge in self.adjacencyList[currNode]:
+                nextNode = edge[0]
+                inDegree[node2] = inDegree[node2]-1
+        if( len(topOrder) != self.nodes ):
+            return "Error: Not possible to construct a topological sort"
+        return topOrder
     
             
 
