@@ -1,6 +1,6 @@
 import queue
-from queue import PriorityQueue
 from collections import deque
+from queue import LifoQueue
 
 class DirectedWeightedGraph:
     def __init__( self , numberOfNodes ):
@@ -113,7 +113,7 @@ class DirectedWeightedGraph:
                         return True
         return False
     
-    def topSort ( self ): # TODO: test
+    def topSort ( self ):
         q = queue.Queue()
         inDegree = [0] * self.nodes
         for node1 in range( self.nodes ):
@@ -130,21 +130,67 @@ class DirectedWeightedGraph:
             topOrder.append( currNode )
             for edge in self.adjacencyList[currNode]:
                 nextNode = edge[0]
-                inDegree[node2] = inDegree[node2]-1
+                inDegree[nextNode] = inDegree[nextNode]-1
+                if( inDegree[nextNode] == 0 ):
+                    q.put( nextNode )
         if( len(topOrder) != self.nodes ):
             return "Error: Not possible to construct a topological sort"
         return topOrder
     
-            
+    def SCC( self ):
+        disc = [-1] * self.nodes
+        low = [-1] * self.nodes
+        components = [-1] * self.nodes
+        inStack = [ False ] * self.nodes
+        stack = LifoQueue( self.nodes )
+        nextComponent = 0
+        nextDiscovery = 0
+        
+        def tarjanDFS( node ):
+            nonlocal disc
+            nonlocal low
+            nonlocal components
+            nonlocal inStack
+            nonlocal stack
+            nonlocal nextComponent
+            nonlocal nextDiscovery
+            if( disc[node] != -1 ):
+                return
+            disc[node] = nextDiscovery
+            low[node] = disc[node]
+            nextDiscovery = nextDiscovery + 1
+            inStack[node] = True
+            stack.put( node )
+            for edge in self.adjacencyList[node]:
+                nextNode = edge[0]
+                if( disc[nextNode] == -1 ):
+                    tarjanDFS( nextNode )
+                    low[node] = min( low[node] , low[nextNode] )
+                elif( inStack[nextNode] == True ):
+                    low[node] = min( low[node] , disc[nextNode] )
+            if( disc[node] == low[node] ):
+                while( True ):
+                    currNode = stack.get()
+                    components[currNode] = nextComponent
+                    inStack[currNode] = False
+                    if( currNode == node ):
+                        break
+                nextComponent = nextComponent + 1
 
-myGraph = UndirectedWeightedGraph( 7 )
-myGraph.addEdge( 0 , 1 , 2 )
-myGraph.addEdge( 0 , 2 , 1 )
+        for node in range( self.nodes ):
+            tarjanDFS( node )
+        return components
+    
+
+myGraph = DirectedWeightedGraph( 5 )
+myGraph.addEdge( 0 , 1 , -1 )
+myGraph.addEdge( 0 , 2 , 4 )
+myGraph.addEdge( 1 , 2 , 3 )
 myGraph.addEdge( 1 , 3 , 2 )
-myGraph.addEdge( 2 , 3 , 5 )
-myGraph.addEdge( 2 , 4 , 7 )
-myGraph.addEdge( 3 , 5 , 5 )
-myGraph.addEdge( 5 , 6 , 11 )
+myGraph.addEdge( 1 , 4 , 2 )
+myGraph.addEdge( 3 , 2 , 5 )
+myGraph.addEdge( 3 , 1 , 1 )
+myGraph.addEdge( 4 , 3 , -3 )
 
 print( "list->", myGraph.adjacencyList )
 
@@ -157,24 +203,39 @@ for x in range( myGraph.nodes ):
     print( myGraph.minDistanceFromSourceToAll( x ) )
 print( "all: " , myGraph.minDistanceFromAllToAll(  ) )
 
-print("pair: " , myGraph.minPairDistance(0,5))
-print("path: " , myGraph.minPath(0,5))
+print("pair: " , myGraph.minPairDistance(0,4))
+print("path: " , myGraph.minPath(0,4))
 
 print( myGraph.minDistanceFromSourceToAll( 0 ) )
-myGraph.deleteEdge( 1 , 3 )
+myGraph.deleteEdge( 0 , 1 )
 print( myGraph.minDistanceFromSourceToAll( 0 ) )
 
-myGraph = UndirectedWeightedGraph( 7 )
-myGraph.addEdge( 0 , 1 , 5 )
+
+myGraph = DirectedWeightedGraph( 8 )
+myGraph.addEdge( 0 , 1 , 1 )
+myGraph.addEdge( 1 , 2 , 1 )
+myGraph.addEdge( 1 , 5 , 1 )
+myGraph.addEdge( 1 , 7 , 1 )
+myGraph.addEdge( 3 , 1 , 1 )
+myGraph.addEdge( 3 , 4 , 1 )
+myGraph.addEdge( 4 , 5 , 1 )
+myGraph.addEdge( 6 , 4 , 1 )
+myGraph.addEdge( 6 , 7 , 1 )
+
+print( myGraph.topSort() )
+
+myGraph = DirectedWeightedGraph( 4 )
+myGraph.addEdge( 0 , 1 , 1 )
+myGraph.addEdge( 1 , 2 , 1 )
+myGraph.addEdge( 2 , 3 , 1 )
+myGraph.addEdge( 3 , 1 , 1 )
+
+print( "TopSort:" , myGraph.topSort() )
+
+myGraph = DirectedWeightedGraph( 5 )
+myGraph.addEdge( 1 , 0 , 1 )
 myGraph.addEdge( 0 , 2 , 1 )
-myGraph.addEdge( 0 , 4 , 4 )
-myGraph.addEdge( 1 , 4 , 8 )
-myGraph.addEdge( 1 , 5 , 6 )
-myGraph.addEdge( 2 , 3 , 3 )
-myGraph.addEdge( 2 , 4 , 2 )
-myGraph.addEdge( 3 , 5 , 8 )
-myGraph.addEdge( 4 , 5 , 7 )
-myGraph.addEdge( 4 , 6 , 9 )
-
-print("MST: " , myGraph.MinimumSpanningTree().adjacencyList)
-print("CMP: " , myGraph.adjacencyList)
+myGraph.addEdge( 2 , 1 , 1 )
+myGraph.addEdge( 0 , 3 , 1 )
+myGraph.addEdge( 3 , 4 , 1 )
+print( "SCC:" , myGraph.SCC() )
