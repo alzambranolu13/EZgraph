@@ -1,5 +1,6 @@
 from queue import PriorityQueue
 from collections import deque
+import queue
 
 class UndirectedWeightedGraph:
     def __init__( self , numberOfNodes ):
@@ -36,6 +37,22 @@ class UndirectedWeightedGraph:
                 self.numberOfEdges = self.numberOfEdges - 1
                 return True
         return False
+
+    def BFS( self , node ):
+        order = []
+        visited = [False] * self.nodes
+        q = queue.Queue()
+        visited[node] = True
+        q.put( node )
+        while( q.empty() == False ):
+            currNode = q.get()
+            order.append( currNode )
+            for edge in self.adjacencyList[node]:
+                nextNode = edge[0]
+                if visited[nextNode] == False:
+                    visited[nextNode] = True
+                    q.put( nextNode )
+        return order
 
     def minDistanceFromSourceToAll( self , source ):
         if( source < 0 or source >= self.nodes ):
