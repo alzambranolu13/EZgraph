@@ -91,6 +91,29 @@ class DirectedGraph:
                     if( distance[i][j] > distance[i][k] + distance[k][j] ):
                         return "Error: Negative Weight Cycle"
         return distance
+
+    def hasCycle( self ):
+        visited = [False] * self.nodes
+        inStack = [False] * self.nodes
+        cycle = False
+        
+        def CycleDFS( node ):
+            nonlocal visited
+            nonlocal inStack
+            nonlocal cycle
+            if visited[node] == True:
+                return
+            visited[node] = True
+            inStack[node] = True
+            for nextNode in self.adjacencyList[node]:
+                if inStack[nextNode] == True:
+                    cycle = True
+                elif visited[nextNode] == False:
+                    CycleDFS( nextNode )
+            inStack[node] = False
+        for node in range( self.nodes ):
+            CycleDFS( node )
+        return cycle
     
     def topSort ( self ):
         q = queue.Queue()
@@ -197,6 +220,7 @@ myGraph.addEdge( 6 , 4 )
 myGraph.addEdge( 6 , 7 )
 
 print( myGraph.topSort() )
+print("CYC:", myGraph.hasCycle() )
 
 myGraph = DirectedGraph( 4 )
 myGraph.addEdge( 0 , 1 )
@@ -213,5 +237,7 @@ myGraph.addEdge( 2 , 1 )
 myGraph.addEdge( 0 , 3 )
 myGraph.addEdge( 3 , 4 )
 print( "SCC:" , myGraph.SCC() )
+
+print( myGraph.hasCycle() )
 
 print( str(type(myGraph)) )
