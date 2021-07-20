@@ -6,10 +6,15 @@ class DirectedGraph:
     def __init__( self , numberOfNodes ):
         self.nodes = numberOfNodes
         self.adjacencyList = []
+        self.numberOfEdges = 0
         for i in range(numberOfNodes):
             self.adjacencyList.append( [] )
 
     def addEdge( self , node1 , node2 ):
+        for edge in self.adjacencyList[node1]:
+            if edge == node2:
+                return False
+        self.numberOfEdges = self.numberOfEdges + 1
         self.adjacencyList[node1].append( node2 )
         return True
 
@@ -17,6 +22,7 @@ class DirectedGraph:
         for edge in self.adjacencyList[node1]:
             if edge == node2:
                 self.adjacencyList[node1].remove( edge )
+                self.numberOfEdges = self.numberOfEdges - 1
                 return True
         return False
 
@@ -204,3 +210,5 @@ myGraph.addEdge( 2 , 1 )
 myGraph.addEdge( 0 , 3 )
 myGraph.addEdge( 3 , 4 )
 print( "SCC:" , myGraph.SCC() )
+
+print( str(type(myGraph)) )

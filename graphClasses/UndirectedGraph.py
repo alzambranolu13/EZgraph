@@ -5,21 +5,30 @@ class UndirectedGraph:
     def __init__( self , numberOfNodes ):
         self.nodes = numberOfNodes
         self.adjacencyList = []
+        self.numberOfEdges = 0
         for i in range(numberOfNodes):
             self.adjacencyList.append( [] )
 
     def addEdge( self , node1 , node2 ):
+        for edge in self.adjacencyList[node1]:
+            if edge == node2:
+                return False
+        for edge in self.adjacencyList[node2]:
+            if edge == node1:
+                return False
+        self.numberOfEdges = self.numberOfEdges + 1
         self.adjacencyList[node1].append( node2 )
         self.adjacencyList[node2].append( node1 )
         return True
 
-    def deleteEdge(self, node1, node2 ):
+    def deleteEdge( self , node1, node2 ):
         for edge in self.adjacencyList[node1]:
             if edge == node2:
                 self.adjacencyList[node1].remove( edge )
         for edge in self.adjacencyList[node2]:
             if edge == node1:
                 self.adjacencyList[node2].remove( edge )
+                self.numberOfEdges = self.numberOfEdges - 1
                 return True
         return False
 
@@ -113,3 +122,5 @@ print("path: " , myGraph.minPath(0,5))
 print( myGraph.minDistanceFromSourceToAll( 0 ) )
 myGraph.deleteEdge( 1 , 3 )
 print( myGraph.minDistanceFromSourceToAll( 0 ) )
+
+print( str(type(myGraph)) )

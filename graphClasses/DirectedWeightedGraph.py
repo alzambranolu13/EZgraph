@@ -6,10 +6,15 @@ class DirectedWeightedGraph:
     def __init__( self , numberOfNodes ):
         self.nodes = numberOfNodes
         self.adjacencyList = []
+        self.numberOfEdges = 0
         for i in range(numberOfNodes):
             self.adjacencyList.append( [] )
 
     def addEdge( self , node1 , node2 , weight ):
+        for edge in self.adjacencyList[node1]:
+            if edge[0] == node2:
+                return False
+        self.numberOfEdges = self.numberOfEdges + 1
         self.adjacencyList[node1].append( [node2 , weight] )
         return True
 
@@ -17,6 +22,7 @@ class DirectedWeightedGraph:
         for edge in self.adjacencyList[node1]:
             if edge[0] == node2:
                 self.adjacencyList[node1].remove( edge )
+                self.numberOfEdges = self.numberOfEdges - 1
                 return True
         return False
 
@@ -239,3 +245,5 @@ myGraph.addEdge( 2 , 1 , 1 )
 myGraph.addEdge( 0 , 3 , 1 )
 myGraph.addEdge( 3 , 4 , 1 )
 print( "SCC:" , myGraph.SCC() )
+
+print( str(type(myGraph)) )

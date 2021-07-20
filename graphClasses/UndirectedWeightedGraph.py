@@ -5,21 +5,30 @@ class UndirectedWeightedGraph:
     def __init__( self , numberOfNodes ):
         self.nodes = numberOfNodes
         self.adjacencyList = []
+        self.numberOfEdges = 0
         for i in range(numberOfNodes):
             self.adjacencyList.append( [] )
 
     def addEdge( self , node1 , node2 , weight ):
+        for edge in self.adjacencyList[node1]:
+            if edge[0] == node2:
+                return False
+        for edge in self.adjacencyList[node2]:
+            if edge[0] == node1:
+                return False
+        self.numberOfEdges = self.numberOfEdges + 1
         self.adjacencyList[node1].append( [node2 , weight] )
         self.adjacencyList[node2].append( [node1 , weight] )
         return True
 
-    def deleteEdge(self, node1, node2 ):
+    def deleteEdge( self , node1, node2 ):
         for edge in self.adjacencyList[node1]:
             if edge[0] == node2:
                 self.adjacencyList[node1].remove( edge )
         for edge in self.adjacencyList[node2]:
             if edge[0] == node1:
                 self.adjacencyList[node2].remove( edge )
+                self.numberOfEdges = self.numberOfEdges - 1
                 return True
         return False
 
