@@ -122,6 +122,32 @@ class UndirectedWeightedGraph:
                 if( visited[node3] == False ):
                     pq.put((weight , (node2,node3,weight) ))
         return tree
+
+    def MaximumSpanningTree( self ):
+        tree = UndirectedWeightedGraph( self.nodes )
+        pq = PriorityQueue()
+        visited = [ False ] * self.nodes
+        visited[0] = True
+        for edge in self.adjacencyList[0]:
+            node = edge[0]
+            weight = edge[1]
+            if( visited[node] == False ):
+                pq.put((-weight , (0,node,weight) ))
+        while( pq.empty() == False ):
+            currentEdge = pq.get()
+            node1 = currentEdge[1][0]
+            node2 = currentEdge[1][1]
+            weight = currentEdge[1][2]
+            if ( visited[node2] == True ):
+                continue
+            visited[node2] = True
+            tree.addEdge( node1 , node2 , weight )
+            for edge in self.adjacencyList[node2]:
+                node3 = edge[0]
+                weight = edge[1]
+                if( visited[node3] == False ):
+                    pq.put((weight , (node2,node3,weight) ))
+        return tree
             
 
 myGraph = UndirectedWeightedGraph( 7 )
