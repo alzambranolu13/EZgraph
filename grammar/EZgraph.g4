@@ -5,16 +5,12 @@ s   : exp ;
 exp   : e exp
       |  ;
 
-e   : (declaracion | creacion | asignacion | leer | imprimir | ciclo | pintar | funcion);
+e   : (declaracion | creacion | asignacion | leer | imprimir | ciclo | pintar | funcion );
 
 
-creacion    : tipografo ID '[' INT ']' ';' ;
+creacion    : TIPOGRAFO ID '[' INT ']' ';' ;
 
-tipografo   : 'NDGraph'
-            | 'DGraph'
-            | 'DWGraph'
-            | 'NDWGraph'
-            ;
+
 
 declaracion         : tipo ID '=' value
                     | tipo ID  ';' ;
@@ -34,26 +30,13 @@ value   : funciondeclaracion
         | lista ';'
         | matriz ';' ;
 
-funciondeclaracion  :  ID '.' 'getNumEdges' '('')' ';'
-                    | ID '.' 'getNodes' '('')' ';'
-                    | ID '.' 'getEdges' '('')' ';'
-                    | ID '.' 'getSize' '('')' ';'
-                    | ID '.' 'getMatrix' '('')' ';'
-                    | ID '.' 'getDistancesFromNode' '('INT')' ';'
-                    | ID '.' 'getAllDistances' '('')' ';'
-                    | ID '.' 'getDistance' '('INT ',' INT')' ';'
-                    | ID '.' 'getShortestPath' '('')' ';'
-                    | ID '.' 'getMinimunSpanningTree' '('')' ';'
-                    | ID '.' 'getMaximunSpanningTree' '('')' ';'
-                    | ID '.' 'hasCycle' '('')' ';'
-                    | ID '.' 'getSCC' '('')' ';'
-                    | ID '.' 'getTopologicalOrder' '('')' ';'
-                    | ID '.' 'BFS' '('INT')' ';'
-                    | ID '.' 'DFS' '('INT')' ';';
+funciondeclaracion  : ID '.' FUNCIONCPARAM '(' ')' ';'
+                    | ID '.' FUNCIONUNPARM '('INT')' ';'
+                    | ID '.' FUNCIONDOPARAM '('INT ',' INT')' ';' ;
 
-funcion : ID '.' 'addEdge' '(' INT ',' INT')' ';'
-        | ID '.' 'addEdge' '(' INT ',' INT',' INT')' ';'
-        | ID '.' 'deleteEdge' '(' INT ',' INT')' ';' ;
+funcion : ID '.' ADDEDGE '(' INT ',' INT')' ';'
+        | ID '.' ADDEDGE '(' INT ',' INT',' INT')' ';'
+        | ID '.' DELETEEDGE '(' INT ',' INT')' ';' ;
 
 
 lista   : '[' (INT.*? ) ']'
@@ -72,7 +55,7 @@ tipo                : 'int'
                     | 'bool'
                     | 'List'
                     | 'Matrix'
-                    | tipografo
+                    | TIPOGRAFO
                     ;
 
 ciclo : 'for' ID  '='  (ID| INT) ':' ID '{' exp'}' ;
@@ -85,4 +68,37 @@ DOUBLE	            : [0-9]+([.][0-9]+);
 INT                 : [0-9]+;
 STRING              : '"' .*? '"';
 BOOLEANO            : ('true' | 'false');
+FUNCIONCPARAM       :'getNumEdges'
+                    | 'getNodes'
+                    | 'getEdges'
+                    | 'getSize'
+                    | 'getMatrix'
+                    | 'getAllDistances'
+                    | 'getShortestPath'
+                    | 'getMinimunSpanningTree'
+                    | 'getMaximunSpanningTree'
+                    | 'hasCycle'
+                    | 'getSCC'
+                    | 'getTopologicalOrder' ;
+FUNCIONUNPARM       : 'getDistancesFromNode'
+                    | 'BFS'
+                    | 'DFS' ;
+FUNCIONDOPARAM      : 'getDistance' ;
+ADDEDGE             : 'addEdge' ;
+DELETEEDGE          : 'deleteEdge' ;
+TIPOGRAFO           : 'NDGraph'
+                    | 'DGraph'
+                    | 'DWGraph'
+                    | 'NDWGraph';
 ID 		            : [a-zA-Z][a-zA-Z0-9_]* ;
+
+
+
+
+
+
+
+
+
+
+

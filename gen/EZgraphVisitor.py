@@ -29,11 +29,6 @@ class EZgraphVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by EZgraphParser#tipografo.
-    def visitTipografo(self, ctx:EZgraphParser.TipografoContext):
-        return self.visitChildren(ctx)
-
-
     # Visit a parse tree produced by EZgraphParser#declaracion.
     def visitDeclaracion(self, ctx:EZgraphParser.DeclaracionContext):
         return self.visitChildren(ctx)

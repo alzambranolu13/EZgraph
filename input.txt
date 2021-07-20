@@ -1,0 +1,2 @@
+DGraph grafo [8];
+List distancia = grafo.getDistance(5,7);

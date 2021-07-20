@@ -44,15 +44,6 @@ class EZgraphListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by EZgraphParser#tipografo.
-    def enterTipografo(self, ctx:EZgraphParser.TipografoContext):
-        pass
-
-    # Exit a parse tree produced by EZgraphParser#tipografo.
-    def exitTipografo(self, ctx:EZgraphParser.TipografoContext):
-        pass
-
-
     # Enter a parse tree produced by EZgraphParser#declaracion.
     def enterDeclaracion(self, ctx:EZgraphParser.DeclaracionContext):
         pass
