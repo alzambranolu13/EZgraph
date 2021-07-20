@@ -7,6 +7,7 @@ class DirectedGraph:
         self.nodes = numberOfNodes
         self.adjacencyList = []
         self.numberOfEdges = 0
+        self.adjacencyMatrix = [ [None] * numberOfNodes ] * numberOfNodes
         for i in range(numberOfNodes):
             self.adjacencyList.append( [] )
 
@@ -15,6 +16,7 @@ class DirectedGraph:
             if edge == node2:
                 return False
         self.numberOfEdges = self.numberOfEdges + 1
+        self.adjacencyMatrix[node1][node2] = 1
         self.adjacencyList[node1].append( node2 )
         return True
 
@@ -22,6 +24,7 @@ class DirectedGraph:
         for edge in self.adjacencyList[node1]:
             if edge == node2:
                 self.adjacencyList[node1].remove( edge )
+                self.adjacencyMatrix[node1][node2] = None
                 self.numberOfEdges = self.numberOfEdges - 1
                 return True
         return False

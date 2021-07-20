@@ -6,6 +6,7 @@ class UndirectedGraph:
         self.nodes = numberOfNodes
         self.adjacencyList = []
         self.numberOfEdges = 0
+        self.adjacencyMatrix = [ [None] * numberOfNodes ] * numberOfNodes
         for i in range(numberOfNodes):
             self.adjacencyList.append( [] )
 
@@ -17,6 +18,8 @@ class UndirectedGraph:
             if edge == node1:
                 return False
         self.numberOfEdges = self.numberOfEdges + 1
+        self.adjacencyMatrix[node1][node2] = 1
+        self.adjacencyMatrix[node2][node1] = 1
         self.adjacencyList[node1].append( node2 )
         self.adjacencyList[node2].append( node1 )
         return True
@@ -25,9 +28,11 @@ class UndirectedGraph:
         for edge in self.adjacencyList[node1]:
             if edge == node2:
                 self.adjacencyList[node1].remove( edge )
+                self.adjacencyMatrix[node1][node2] = None
         for edge in self.adjacencyList[node2]:
             if edge == node1:
                 self.adjacencyList[node2].remove( edge )
+                self.adjacencyMatrix[node2][node1] = None
                 self.numberOfEdges = self.numberOfEdges - 1
                 return True
         return False

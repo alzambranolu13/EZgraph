@@ -7,6 +7,7 @@ class DirectedWeightedGraph:
         self.nodes = numberOfNodes
         self.adjacencyList = []
         self.numberOfEdges = 0
+        self.adjacencyMatrix = [ [None] * numberOfNodes ] * numberOfNodes
         for i in range(numberOfNodes):
             self.adjacencyList.append( [] )
 
@@ -15,6 +16,7 @@ class DirectedWeightedGraph:
             if edge[0] == node2:
                 return False
         self.numberOfEdges = self.numberOfEdges + 1
+        self.adjacencyMatrix[node1][node2] = weight
         self.adjacencyList[node1].append( [node2 , weight] )
         return True
 
@@ -22,6 +24,7 @@ class DirectedWeightedGraph:
         for edge in self.adjacencyList[node1]:
             if edge[0] == node2:
                 self.adjacencyList[node1].remove( edge )
+                self.adjacencyMatrix[node1][node2] = None
                 self.numberOfEdges = self.numberOfEdges - 1
                 return True
         return False
