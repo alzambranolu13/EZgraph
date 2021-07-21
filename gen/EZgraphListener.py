@@ -53,15 +53,6 @@ class EZgraphListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by EZgraphParser#asignacion.
-    def enterAsignacion(self, ctx:EZgraphParser.AsignacionContext):
-        pass
-
-    # Exit a parse tree produced by EZgraphParser#asignacion.
-    def exitAsignacion(self, ctx:EZgraphParser.AsignacionContext):
-        pass
-
-
     # Enter a parse tree produced by EZgraphParser#leer.
     def enterLeer(self, ctx:EZgraphParser.LeerContext):
         pass
@@ -107,48 +98,12 @@ class EZgraphListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by EZgraphParser#lista.
-    def enterLista(self, ctx:EZgraphParser.ListaContext):
-        pass
-
-    # Exit a parse tree produced by EZgraphParser#lista.
-    def exitLista(self, ctx:EZgraphParser.ListaContext):
-        pass
-
-
-    # Enter a parse tree produced by EZgraphParser#matriz.
-    def enterMatriz(self, ctx:EZgraphParser.MatrizContext):
-        pass
-
-    # Exit a parse tree produced by EZgraphParser#matriz.
-    def exitMatriz(self, ctx:EZgraphParser.MatrizContext):
-        pass
-
-
-    # Enter a parse tree produced by EZgraphParser#dentro.
-    def enterDentro(self, ctx:EZgraphParser.DentroContext):
-        pass
-
-    # Exit a parse tree produced by EZgraphParser#dentro.
-    def exitDentro(self, ctx:EZgraphParser.DentroContext):
-        pass
-
-
     # Enter a parse tree produced by EZgraphParser#pintar.
     def enterPintar(self, ctx:EZgraphParser.PintarContext):
         pass
 
     # Exit a parse tree produced by EZgraphParser#pintar.
     def exitPintar(self, ctx:EZgraphParser.PintarContext):
-        pass
-
-
-    # Enter a parse tree produced by EZgraphParser#tipo.
-    def enterTipo(self, ctx:EZgraphParser.TipoContext):
-        pass
-
-    # Exit a parse tree produced by EZgraphParser#tipo.
-    def exitTipo(self, ctx:EZgraphParser.TipoContext):
         pass
 
 

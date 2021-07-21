@@ -5,33 +5,28 @@ s   : exp ;
 exp   : e exp
       |  ;
 
-e   : (declaracion | creacion | asignacion | leer | imprimir | ciclo | pintar | funcion );
+e   : (declaracion | creacion  | leer | imprimir | ciclo | pintar | funcion );
 
 
 creacion    : TIPOGRAFO ID '[' INT ']' ';' ;
 
 
-
-declaracion         : tipo ID '=' value
-                    | tipo ID  ';' ;
-
-asignacion  : ID '=' value ;
+declaracion         : ID '=' value;
 
 leer    : 'read' '(' ID ')' ';';
 
 
-imprimir    : 'print' '(' (STRING | ID) ')' ';';
+imprimir    : 'print' '(' value ')' ';';
 
 value   : funciondeclaracion
         | STRING ';'
         | INT ';'
         | FLOAT ';'
         | BOOLEANO ';'
-        | lista ';'
-        | matriz ';' ;
+        | ID;
 
 funciondeclaracion  : ID '.' FUNCIONCPARAM '(' ')' ';'
-                    | ID '.' FUNCIONUNPARM '('INT')' ';'
+                    | ID '.' FUNCIONUNPARAM '('INT')' ';'
                     | ID '.' FUNCIONDOPARAM '('INT ',' INT')' ';' ;
 
 funcion : ID '.' ADDEDGE '(' INT ',' INT')' ';'
@@ -39,26 +34,10 @@ funcion : ID '.' ADDEDGE '(' INT ',' INT')' ';'
         | ID '.' DELETEEDGE '(' INT ',' INT')' ';' ;
 
 
-lista   : '[' (INT.*? ) ']'
-        | '[' (FLOAT.*? ) ']'
-        | '[' (STRING.*? ) ']';
-
-matriz  : '[' lista  dentro.*? ']' ;
-
-dentro  : ';' lista;
 
 pintar  : ID '.' 'paint' '(' ')' ';';
 
-tipo                : 'int'
-                    | 'string'
-                    | 'double'
-                    | 'bool'
-                    | 'List'
-                    | 'Matrix'
-                    | TIPOGRAFO
-                    ;
-
-ciclo : 'for' ID  '='  (ID| INT) ':' ID '{' exp'}' ;
+ciclo : 'for' ID  '='  value ':' value '{'exp'}' ;
 
 COMMENT 		    : '/*' .*? '*/' -> skip ;
 LINE_COMMENT 	    : '//' ~[\r\n]* -> skip ;
@@ -71,19 +50,18 @@ BOOLEANO            : ('true' | 'false');
 FUNCIONCPARAM       :'getNumEdges'
                     | 'getNodes'
                     | 'getEdges'
-                    | 'getSize'
                     | 'getMatrix'
                     | 'getAllDistances'
-                    | 'getShortestPath'
                     | 'getMinimunSpanningTree'
                     | 'getMaximunSpanningTree'
                     | 'hasCycle'
                     | 'getSCC'
                     | 'getTopologicalOrder' ;
-FUNCIONUNPARM       : 'getDistancesFromNode'
+FUNCIONUNPARAM       : 'getDistancesFromNode'
                     | 'BFS'
                     | 'DFS' ;
-FUNCIONDOPARAM      : 'getDistance' ;
+FUNCIONDOPARAM      : 'getDistance'
+                    | 'getShortestPath';
 ADDEDGE             : 'addEdge' ;
 DELETEEDGE          : 'deleteEdge' ;
 TIPOGRAFO           : 'NDGraph'

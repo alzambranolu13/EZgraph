@@ -34,11 +34,6 @@ class EZgraphVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by EZgraphParser#asignacion.
-    def visitAsignacion(self, ctx:EZgraphParser.AsignacionContext):
-        return self.visitChildren(ctx)
-
-
     # Visit a parse tree produced by EZgraphParser#leer.
     def visitLeer(self, ctx:EZgraphParser.LeerContext):
         return self.visitChildren(ctx)
@@ -64,28 +59,8 @@ class EZgraphVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by EZgraphParser#lista.
-    def visitLista(self, ctx:EZgraphParser.ListaContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by EZgraphParser#matriz.
-    def visitMatriz(self, ctx:EZgraphParser.MatrizContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by EZgraphParser#dentro.
-    def visitDentro(self, ctx:EZgraphParser.DentroContext):
-        return self.visitChildren(ctx)
-
-
     # Visit a parse tree produced by EZgraphParser#pintar.
     def visitPintar(self, ctx:EZgraphParser.PintarContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by EZgraphParser#tipo.
-    def visitTipo(self, ctx:EZgraphParser.TipoContext):
         return self.visitChildren(ctx)
 
 
