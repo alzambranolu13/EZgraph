@@ -29,6 +29,37 @@ class DirectedWeightedGraph:
                 return True
         return False
 
+    def BFS( self , node ):
+        order = []
+        visited = [False] * self.nodes
+        q = queue.Queue()
+        visited[node] = True
+        q.put( node )
+        while( q.empty() == False ):
+            currNode = q.get()
+            order.append( currNode )
+            for edge in self.adjacencyList[node]:
+                nextNode = edge[0]
+                if visited[nextNode] == False:
+                    visited[nextNode] = True
+                    q.put( nextNode )
+        return order
+
+    def DFS( self , node ):
+        order = []
+        visited = [False] * self.nodes
+        def DFSrecursion( node ):
+            nonlocal order
+            nonlocal visited
+            order.append( node )
+            visited[node] = True
+            for edge in self.adjacencyList[node]:
+                nextNode = edge[0]
+                if visited[nextNode] == False:
+                    DFSrecursion( nextNode )
+        DFSrecursion( node )
+        return order
+
     def minDistanceFromSourceToAll( self , source ):
         if( source < 0 or source >= self.nodes ):
             return False
