@@ -1,152 +1,153 @@
 # Generated from C:/Users/a-zam/OneDrive/Documentos/Universidad/Lenguajes de programacion/proyectoFinal/EZgraph/grammar\EZgraph.g4 by ANTLR 4.9.1
 # encoding: utf-8
-from __future__ import print_function
 from antlr4 import *
 from io import StringIO
 import sys
+if sys.version_info[1] > 5:
+	from typing import TextIO
+else:
+	from typing.io import TextIO
 
 
 def serializedATN():
     with StringIO() as buf:
-        buf.write(u"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3")
-        buf.write(u"8\u013a\4\2\t\2\4\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t")
-        buf.write(u"\7\4\b\t\b\4\t\t\t\4\n\t\n\4\13\t\13\4\f\t\f\4\r\t\r")
-        buf.write(u"\4\16\t\16\4\17\t\17\4\20\t\20\4\21\t\21\4\22\t\22\4")
-        buf.write(u"\23\t\23\3\2\3\2\3\3\3\3\3\3\3\3\5\3-\n\3\3\4\3\4\3\4")
-        buf.write(u"\3\4\3\4\3\4\3\4\3\4\5\4\67\n\4\3\5\3\5\3\5\3\5\3\5\3")
-        buf.write(u"\5\3\5\3\6\3\6\3\7\3\7\3\7\3\7\3\7\3\7\3\7\3\7\3\7\5")
-        buf.write(u"\7K\n\7\3\b\3\b\3\b\3\b\3\t\3\t\3\t\3\t\3\t\3\t\3\n\3")
-        buf.write(u"\n\3\n\3\n\3\n\3\n\3\13\3\13\3\13\3\13\3\13\3\13\3\13")
-        buf.write(u"\3\13\3\13\3\13\3\13\3\13\3\13\3\13\3\13\5\13l\n\13\3")
-        buf.write(u"\f\3\f\3\f\3\f\3\f\3\f\3\f\3\f\3\f\3\f\3\f\3\f\3\f\3")
-        buf.write(u"\f\3\f\3\f\3\f\3\f\3\f\3\f\3\f\3\f\3\f\3\f\3\f\3\f\3")
-        buf.write(u"\f\3\f\3\f\3\f\3\f\3\f\3\f\3\f\3\f\3\f\3\f\3\f\3\f\3")
-        buf.write(u"\f\3\f\3\f\3\f\3\f\3\f\3\f\3\f\3\f\3\f\3\f\3\f\3\f\3")
-        buf.write(u"\f\3\f\3\f\3\f\3\f\3\f\3\f\3\f\3\f\3\f\3\f\3\f\3\f\3")
-        buf.write(u"\f\3\f\3\f\3\f\3\f\3\f\3\f\3\f\3\f\3\f\3\f\3\f\3\f\3")
-        buf.write(u"\f\3\f\3\f\3\f\3\f\3\f\3\f\3\f\3\f\3\f\3\f\3\f\3\f\3")
-        buf.write(u"\f\3\f\3\f\3\f\3\f\3\f\3\f\3\f\3\f\3\f\3\f\5\f\u00d4")
-        buf.write(u"\n\f\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r")
-        buf.write(u"\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r")
-        buf.write(u"\3\r\3\r\3\r\3\r\5\r\u00f3\n\r\3\16\3\16\3\16\7\16\u00f8")
-        buf.write(u"\n\16\f\16\16\16\u00fb\13\16\3\16\3\16\3\16\3\16\7\16")
-        buf.write(u"\u0101\n\16\f\16\16\16\u0104\13\16\3\16\3\16\3\16\3\16")
-        buf.write(u"\7\16\u010a\n\16\f\16\16\16\u010d\13\16\3\16\5\16\u0110")
-        buf.write(u"\n\16\3\17\3\17\3\17\3\17\7\17\u0116\n\17\f\17\16\17")
-        buf.write(u"\u0119\13\17\3\17\3\17\3\20\3\20\3\20\3\21\3\21\3\21")
-        buf.write(u"\3\21\3\21\3\21\3\21\3\22\3\22\3\22\3\22\3\22\3\22\3")
-        buf.write(u"\22\5\22\u012e\n\22\3\23\3\23\3\23\3\23\3\23\3\23\3\23")
-        buf.write(u"\3\23\3\23\3\23\3\23\6\u00f9\u0102\u010b\u0117\2\24\2")
-        buf.write(u"\4\6\b\n\f\16\20\22\24\26\30\32\34\36 \"$\2\5\3\2\6\t")
-        buf.write(u"\4\2\64\64\66\66\4\2\63\63\66\66\2\u0153\2&\3\2\2\2\4")
-        buf.write(u",\3\2\2\2\6\66\3\2\2\2\b8\3\2\2\2\n?\3\2\2\2\fJ\3\2\2")
-        buf.write(u"\2\16L\3\2\2\2\20P\3\2\2\2\22V\3\2\2\2\24k\3\2\2\2\26")
-        buf.write(u"\u00d3\3\2\2\2\30\u00f2\3\2\2\2\32\u010f\3\2\2\2\34\u0111")
-        buf.write(u"\3\2\2\2\36\u011c\3\2\2\2 \u011f\3\2\2\2\"\u012d\3\2")
-        buf.write(u"\2\2$\u012f\3\2\2\2&\'\5\4\3\2\'\3\3\2\2\2()\5\6\4\2")
-        buf.write(u")*\5\4\3\2*-\3\2\2\2+-\3\2\2\2,(\3\2\2\2,+\3\2\2\2-\5")
-        buf.write(u"\3\2\2\2.\67\5\f\7\2/\67\5\b\5\2\60\67\5\16\b\2\61\67")
-        buf.write(u"\5\20\t\2\62\67\5\22\n\2\63\67\5$\23\2\64\67\5 \21\2")
-        buf.write(u"\65\67\5\30\r\2\66.\3\2\2\2\66/\3\2\2\2\66\60\3\2\2\2")
-        buf.write(u"\66\61\3\2\2\2\66\62\3\2\2\2\66\63\3\2\2\2\66\64\3\2")
-        buf.write(u"\2\2\66\65\3\2\2\2\67\7\3\2\2\289\5\n\6\29:\7\66\2\2")
-        buf.write(u":;\7\3\2\2;<\7\67\2\2<=\7\4\2\2=>\7\5\2\2>\t\3\2\2\2")
-        buf.write(u"?@\t\2\2\2@\13\3\2\2\2AB\5\"\22\2BC\7\66\2\2CD\7\n\2")
-        buf.write(u"\2DE\5\24\13\2EK\3\2\2\2FG\5\"\22\2GH\7\66\2\2HI\7\5")
-        buf.write(u"\2\2IK\3\2\2\2JA\3\2\2\2JF\3\2\2\2K\r\3\2\2\2LM\7\66")
-        buf.write(u"\2\2MN\7\n\2\2NO\5\24\13\2O\17\3\2\2\2PQ\7\13\2\2QR\7")
-        buf.write(u"\f\2\2RS\7\66\2\2ST\7\r\2\2TU\7\5\2\2U\21\3\2\2\2VW\7")
-        buf.write(u"\16\2\2WX\7\f\2\2XY\t\3\2\2YZ\7\r\2\2Z[\7\5\2\2[\23\3")
-        buf.write(u"\2\2\2\\l\5\26\f\2]^\7\64\2\2^l\7\5\2\2_`\7\63\2\2`l")
-        buf.write(u"\7\5\2\2ab\78\2\2bl\7\5\2\2cd\7\65\2\2dl\7\5\2\2ef\5")
-        buf.write(u"\32\16\2fg\7\5\2\2gl\3\2\2\2hi\5\34\17\2ij\7\5\2\2jl")
-        buf.write(u"\3\2\2\2k\\\3\2\2\2k]\3\2\2\2k_\3\2\2\2ka\3\2\2\2kc\3")
-        buf.write(u"\2\2\2ke\3\2\2\2kh\3\2\2\2l\25\3\2\2\2mn\7\66\2\2no\7")
-        buf.write(u"\17\2\2op\7\20\2\2pq\7\f\2\2qr\7\r\2\2r\u00d4\7\5\2\2")
-        buf.write(u"st\7\66\2\2tu\7\17\2\2uv\7\21\2\2vw\7\f\2\2wx\7\r\2\2")
-        buf.write(u"x\u00d4\7\5\2\2yz\7\66\2\2z{\7\17\2\2{|\7\22\2\2|}\7")
-        buf.write(u"\f\2\2}~\7\r\2\2~\u00d4\7\5\2\2\177\u0080\7\66\2\2\u0080")
-        buf.write(u"\u0081\7\17\2\2\u0081\u0082\7\23\2\2\u0082\u0083\7\f")
-        buf.write(u"\2\2\u0083\u0084\7\r\2\2\u0084\u00d4\7\5\2\2\u0085\u0086")
-        buf.write(u"\7\66\2\2\u0086\u0087\7\17\2\2\u0087\u0088\7\24\2\2\u0088")
-        buf.write(u"\u0089\7\f\2\2\u0089\u008a\7\r\2\2\u008a\u00d4\7\5\2")
-        buf.write(u"\2\u008b\u008c\7\66\2\2\u008c\u008d\7\17\2\2\u008d\u008e")
-        buf.write(u"\7\25\2\2\u008e\u008f\7\f\2\2\u008f\u0090\7\63\2\2\u0090")
-        buf.write(u"\u0091\7\r\2\2\u0091\u00d4\7\5\2\2\u0092\u0093\7\66\2")
-        buf.write(u"\2\u0093\u0094\7\17\2\2\u0094\u0095\7\26\2\2\u0095\u0096")
-        buf.write(u"\7\f\2\2\u0096\u0097\7\r\2\2\u0097\u00d4\7\5\2\2\u0098")
-        buf.write(u"\u0099\7\66\2\2\u0099\u009a\7\17\2\2\u009a\u009b\7\27")
-        buf.write(u"\2\2\u009b\u009c\7\f\2\2\u009c\u009d\7\63\2\2\u009d\u009e")
-        buf.write(u"\7\30\2\2\u009e\u009f\7\63\2\2\u009f\u00a0\7\r\2\2\u00a0")
-        buf.write(u"\u00d4\7\5\2\2\u00a1\u00a2\7\66\2\2\u00a2\u00a3\7\17")
-        buf.write(u"\2\2\u00a3\u00a4\7\31\2\2\u00a4\u00a5\7\f\2\2\u00a5\u00a6")
-        buf.write(u"\7\r\2\2\u00a6\u00d4\7\5\2\2\u00a7\u00a8\7\66\2\2\u00a8")
-        buf.write(u"\u00a9\7\17\2\2\u00a9\u00aa\7\32\2\2\u00aa\u00ab\7\f")
-        buf.write(u"\2\2\u00ab\u00ac\7\r\2\2\u00ac\u00d4\7\5\2\2\u00ad\u00ae")
-        buf.write(u"\7\66\2\2\u00ae\u00af\7\17\2\2\u00af\u00b0\7\33\2\2\u00b0")
-        buf.write(u"\u00b1\7\f\2\2\u00b1\u00b2\7\r\2\2\u00b2\u00d4\7\5\2")
-        buf.write(u"\2\u00b3\u00b4\7\66\2\2\u00b4\u00b5\7\17\2\2\u00b5\u00b6")
-        buf.write(u"\7\34\2\2\u00b6\u00b7\7\f\2\2\u00b7\u00b8\7\r\2\2\u00b8")
-        buf.write(u"\u00d4\7\5\2\2\u00b9\u00ba\7\66\2\2\u00ba\u00bb\7\17")
-        buf.write(u"\2\2\u00bb\u00bc\7\35\2\2\u00bc\u00bd\7\f\2\2\u00bd\u00be")
-        buf.write(u"\7\r\2\2\u00be\u00d4\7\5\2\2\u00bf\u00c0\7\66\2\2\u00c0")
-        buf.write(u"\u00c1\7\17\2\2\u00c1\u00c2\7\36\2\2\u00c2\u00c3\7\f")
-        buf.write(u"\2\2\u00c3\u00c4\7\r\2\2\u00c4\u00d4\7\5\2\2\u00c5\u00c6")
-        buf.write(u"\7\66\2\2\u00c6\u00c7\7\17\2\2\u00c7\u00c8\7\37\2\2\u00c8")
-        buf.write(u"\u00c9\7\f\2\2\u00c9\u00ca\7\63\2\2\u00ca\u00cb\7\r\2")
-        buf.write(u"\2\u00cb\u00d4\7\5\2\2\u00cc\u00cd\7\66\2\2\u00cd\u00ce")
-        buf.write(u"\7\17\2\2\u00ce\u00cf\7 \2\2\u00cf\u00d0\7\f\2\2\u00d0")
-        buf.write(u"\u00d1\7\63\2\2\u00d1\u00d2\7\r\2\2\u00d2\u00d4\7\5\2")
-        buf.write(u"\2\u00d3m\3\2\2\2\u00d3s\3\2\2\2\u00d3y\3\2\2\2\u00d3")
-        buf.write(u"\177\3\2\2\2\u00d3\u0085\3\2\2\2\u00d3\u008b\3\2\2\2")
-        buf.write(u"\u00d3\u0092\3\2\2\2\u00d3\u0098\3\2\2\2\u00d3\u00a1")
-        buf.write(u"\3\2\2\2\u00d3\u00a7\3\2\2\2\u00d3\u00ad\3\2\2\2\u00d3")
-        buf.write(u"\u00b3\3\2\2\2\u00d3\u00b9\3\2\2\2\u00d3\u00bf\3\2\2")
-        buf.write(u"\2\u00d3\u00c5\3\2\2\2\u00d3\u00cc\3\2\2\2\u00d4\27\3")
-        buf.write(u"\2\2\2\u00d5\u00d6\7\66\2\2\u00d6\u00d7\7\17\2\2\u00d7")
-        buf.write(u"\u00d8\7!\2\2\u00d8\u00d9\7\f\2\2\u00d9\u00da\7\63\2")
-        buf.write(u"\2\u00da\u00db\7\30\2\2\u00db\u00dc\7\63\2\2\u00dc\u00dd")
-        buf.write(u"\7\r\2\2\u00dd\u00f3\7\5\2\2\u00de\u00df\7\66\2\2\u00df")
-        buf.write(u"\u00e0\7\17\2\2\u00e0\u00e1\7!\2\2\u00e1\u00e2\7\f\2")
-        buf.write(u"\2\u00e2\u00e3\7\63\2\2\u00e3\u00e4\7\30\2\2\u00e4\u00e5")
-        buf.write(u"\7\63\2\2\u00e5\u00e6\7\30\2\2\u00e6\u00e7\7\63\2\2\u00e7")
-        buf.write(u"\u00e8\7\r\2\2\u00e8\u00f3\7\5\2\2\u00e9\u00ea\7\66\2")
-        buf.write(u"\2\u00ea\u00eb\7\17\2\2\u00eb\u00ec\7\"\2\2\u00ec\u00ed")
-        buf.write(u"\7\f\2\2\u00ed\u00ee\7\63\2\2\u00ee\u00ef\7\30\2\2\u00ef")
-        buf.write(u"\u00f0\7\63\2\2\u00f0\u00f1\7\r\2\2\u00f1\u00f3\7\5\2")
-        buf.write(u"\2\u00f2\u00d5\3\2\2\2\u00f2\u00de\3\2\2\2\u00f2\u00e9")
-        buf.write(u"\3\2\2\2\u00f3\31\3\2\2\2\u00f4\u00f5\7\3\2\2\u00f5\u00f9")
-        buf.write(u"\7\63\2\2\u00f6\u00f8\13\2\2\2\u00f7\u00f6\3\2\2\2\u00f8")
-        buf.write(u"\u00fb\3\2\2\2\u00f9\u00fa\3\2\2\2\u00f9\u00f7\3\2\2")
-        buf.write(u"\2\u00fa\u00fc\3\2\2\2\u00fb\u00f9\3\2\2\2\u00fc\u0110")
-        buf.write(u"\7\4\2\2\u00fd\u00fe\7\3\2\2\u00fe\u0102\78\2\2\u00ff")
-        buf.write(u"\u0101\13\2\2\2\u0100\u00ff\3\2\2\2\u0101\u0104\3\2\2")
-        buf.write(u"\2\u0102\u0103\3\2\2\2\u0102\u0100\3\2\2\2\u0103\u0105")
-        buf.write(u"\3\2\2\2\u0104\u0102\3\2\2\2\u0105\u0110\7\4\2\2\u0106")
-        buf.write(u"\u0107\7\3\2\2\u0107\u010b\7\64\2\2\u0108\u010a\13\2")
-        buf.write(u"\2\2\u0109\u0108\3\2\2\2\u010a\u010d\3\2\2\2\u010b\u010c")
-        buf.write(u"\3\2\2\2\u010b\u0109\3\2\2\2\u010c\u010e\3\2\2\2\u010d")
-        buf.write(u"\u010b\3\2\2\2\u010e\u0110\7\4\2\2\u010f\u00f4\3\2\2")
-        buf.write(u"\2\u010f\u00fd\3\2\2\2\u010f\u0106\3\2\2\2\u0110\33\3")
-        buf.write(u"\2\2\2\u0111\u0112\7\3\2\2\u0112\u0113\5\32\16\2\u0113")
-        buf.write(u"\u0117\5\36\20\2\u0114\u0116\13\2\2\2\u0115\u0114\3\2")
-        buf.write(u"\2\2\u0116\u0119\3\2\2\2\u0117\u0118\3\2\2\2\u0117\u0115")
-        buf.write(u"\3\2\2\2\u0118\u011a\3\2\2\2\u0119\u0117\3\2\2\2\u011a")
-        buf.write(u"\u011b\7\4\2\2\u011b\35\3\2\2\2\u011c\u011d\7\5\2\2\u011d")
-        buf.write(u"\u011e\5\32\16\2\u011e\37\3\2\2\2\u011f\u0120\7\66\2")
-        buf.write(u"\2\u0120\u0121\7\17\2\2\u0121\u0122\7#\2\2\u0122\u0123")
-        buf.write(u"\7\f\2\2\u0123\u0124\7\r\2\2\u0124\u0125\7\5\2\2\u0125")
-        buf.write(u"!\3\2\2\2\u0126\u012e\7$\2\2\u0127\u012e\7%\2\2\u0128")
-        buf.write(u"\u012e\7&\2\2\u0129\u012e\7\'\2\2\u012a\u012e\7(\2\2")
-        buf.write(u"\u012b\u012e\7)\2\2\u012c\u012e\5\n\6\2\u012d\u0126\3")
-        buf.write(u"\2\2\2\u012d\u0127\3\2\2\2\u012d\u0128\3\2\2\2\u012d")
-        buf.write(u"\u0129\3\2\2\2\u012d\u012a\3\2\2\2\u012d\u012b\3\2\2")
-        buf.write(u"\2\u012d\u012c\3\2\2\2\u012e#\3\2\2\2\u012f\u0130\7*")
-        buf.write(u"\2\2\u0130\u0131\7\66\2\2\u0131\u0132\7\n\2\2\u0132\u0133")
-        buf.write(u"\t\4\2\2\u0133\u0134\7+\2\2\u0134\u0135\7\66\2\2\u0135")
-        buf.write(u"\u0136\7,\2\2\u0136\u0137\5\4\3\2\u0137\u0138\7-\2\2")
-        buf.write(u"\u0138%\3\2\2\2\16,\66Jk\u00d3\u00f2\u00f9\u0102\u010b")
-        buf.write(u"\u010f\u0117\u012d")
+        buf.write("\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\67")
+        buf.write("\u013a\4\2\t\2\4\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7")
+        buf.write("\4\b\t\b\4\t\t\t\4\n\t\n\4\13\t\13\4\f\t\f\4\r\t\r\4\16")
+        buf.write("\t\16\4\17\t\17\4\20\t\20\4\21\t\21\4\22\t\22\4\23\t\23")
+        buf.write("\3\2\3\2\3\3\3\3\3\3\3\3\5\3-\n\3\3\4\3\4\3\4\3\4\3\4")
+        buf.write("\3\4\3\4\3\4\5\4\67\n\4\3\5\3\5\3\5\3\5\3\5\3\5\3\5\3")
+        buf.write("\6\3\6\3\7\3\7\3\7\3\7\3\7\3\7\3\7\3\7\3\7\5\7K\n\7\3")
+        buf.write("\b\3\b\3\b\3\b\3\t\3\t\3\t\3\t\3\t\3\t\3\n\3\n\3\n\3\n")
+        buf.write("\3\n\3\n\3\13\3\13\3\13\3\13\3\13\3\13\3\13\3\13\3\13")
+        buf.write("\3\13\3\13\3\13\3\13\3\13\3\13\5\13l\n\13\3\f\3\f\3\f")
+        buf.write("\3\f\3\f\3\f\3\f\3\f\3\f\3\f\3\f\3\f\3\f\3\f\3\f\3\f\3")
+        buf.write("\f\3\f\3\f\3\f\3\f\3\f\3\f\3\f\3\f\3\f\3\f\3\f\3\f\3\f")
+        buf.write("\3\f\3\f\3\f\3\f\3\f\3\f\3\f\3\f\3\f\3\f\3\f\3\f\3\f\3")
+        buf.write("\f\3\f\3\f\3\f\3\f\3\f\3\f\3\f\3\f\3\f\3\f\3\f\3\f\3\f")
+        buf.write("\3\f\3\f\3\f\3\f\3\f\3\f\3\f\3\f\3\f\3\f\3\f\3\f\3\f\3")
+        buf.write("\f\3\f\3\f\3\f\3\f\3\f\3\f\3\f\3\f\3\f\3\f\3\f\3\f\3\f")
+        buf.write("\3\f\3\f\3\f\3\f\3\f\3\f\3\f\3\f\3\f\3\f\3\f\3\f\3\f\3")
+        buf.write("\f\3\f\3\f\3\f\3\f\5\f\u00d4\n\f\3\r\3\r\3\r\3\r\3\r\3")
+        buf.write("\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r")
+        buf.write("\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\5\r\u00f3\n\r")
+        buf.write("\3\16\3\16\3\16\7\16\u00f8\n\16\f\16\16\16\u00fb\13\16")
+        buf.write("\3\16\3\16\3\16\3\16\7\16\u0101\n\16\f\16\16\16\u0104")
+        buf.write("\13\16\3\16\3\16\3\16\3\16\7\16\u010a\n\16\f\16\16\16")
+        buf.write("\u010d\13\16\3\16\5\16\u0110\n\16\3\17\3\17\3\17\3\17")
+        buf.write("\7\17\u0116\n\17\f\17\16\17\u0119\13\17\3\17\3\17\3\20")
+        buf.write("\3\20\3\20\3\21\3\21\3\21\3\21\3\21\3\21\3\21\3\22\3\22")
+        buf.write("\3\22\3\22\3\22\3\22\3\22\5\22\u012e\n\22\3\23\3\23\3")
+        buf.write("\23\3\23\3\23\3\23\3\23\3\23\3\23\3\23\3\23\6\u00f9\u0102")
+        buf.write("\u010b\u0117\2\24\2\4\6\b\n\f\16\20\22\24\26\30\32\34")
+        buf.write("\36 \"$\2\5\3\2\6\t\4\2\64\64\66\66\4\2\63\63\66\66\2")
+        buf.write("\u0153\2&\3\2\2\2\4,\3\2\2\2\6\66\3\2\2\2\b8\3\2\2\2\n")
+        buf.write("?\3\2\2\2\fJ\3\2\2\2\16L\3\2\2\2\20P\3\2\2\2\22V\3\2\2")
+        buf.write("\2\24k\3\2\2\2\26\u00d3\3\2\2\2\30\u00f2\3\2\2\2\32\u010f")
+        buf.write("\3\2\2\2\34\u0111\3\2\2\2\36\u011c\3\2\2\2 \u011f\3\2")
+        buf.write("\2\2\"\u012d\3\2\2\2$\u012f\3\2\2\2&\'\5\4\3\2\'\3\3\2")
+        buf.write("\2\2()\5\6\4\2)*\5\4\3\2*-\3\2\2\2+-\3\2\2\2,(\3\2\2\2")
+        buf.write(",+\3\2\2\2-\5\3\2\2\2.\67\5\f\7\2/\67\5\b\5\2\60\67\5")
+        buf.write("\16\b\2\61\67\5\20\t\2\62\67\5\22\n\2\63\67\5$\23\2\64")
+        buf.write("\67\5 \21\2\65\67\5\30\r\2\66.\3\2\2\2\66/\3\2\2\2\66")
+        buf.write("\60\3\2\2\2\66\61\3\2\2\2\66\62\3\2\2\2\66\63\3\2\2\2")
+        buf.write("\66\64\3\2\2\2\66\65\3\2\2\2\67\7\3\2\2\289\5\n\6\29:")
+        buf.write("\7\66\2\2:;\7\3\2\2;<\7\63\2\2<=\7\4\2\2=>\7\5\2\2>\t")
+        buf.write("\3\2\2\2?@\t\2\2\2@\13\3\2\2\2AB\5\"\22\2BC\7\66\2\2C")
+        buf.write("D\7\n\2\2DE\5\24\13\2EK\3\2\2\2FG\5\"\22\2GH\7\66\2\2")
+        buf.write("HI\7\5\2\2IK\3\2\2\2JA\3\2\2\2JF\3\2\2\2K\r\3\2\2\2LM")
+        buf.write("\7\66\2\2MN\7\n\2\2NO\5\24\13\2O\17\3\2\2\2PQ\7\13\2\2")
+        buf.write("QR\7\f\2\2RS\7\66\2\2ST\7\r\2\2TU\7\5\2\2U\21\3\2\2\2")
+        buf.write("VW\7\16\2\2WX\7\f\2\2XY\t\3\2\2YZ\7\r\2\2Z[\7\5\2\2[\23")
+        buf.write("\3\2\2\2\\l\5\26\f\2]^\7\64\2\2^l\7\5\2\2_`\7\63\2\2`")
+        buf.write("l\7\5\2\2ab\7\67\2\2bl\7\5\2\2cd\7\65\2\2dl\7\5\2\2ef")
+        buf.write("\5\32\16\2fg\7\5\2\2gl\3\2\2\2hi\5\34\17\2ij\7\5\2\2j")
+        buf.write("l\3\2\2\2k\\\3\2\2\2k]\3\2\2\2k_\3\2\2\2ka\3\2\2\2kc\3")
+        buf.write("\2\2\2ke\3\2\2\2kh\3\2\2\2l\25\3\2\2\2mn\7\66\2\2no\7")
+        buf.write("\17\2\2op\7\20\2\2pq\7\f\2\2qr\7\r\2\2r\u00d4\7\5\2\2")
+        buf.write("st\7\66\2\2tu\7\17\2\2uv\7\21\2\2vw\7\f\2\2wx\7\r\2\2")
+        buf.write("x\u00d4\7\5\2\2yz\7\66\2\2z{\7\17\2\2{|\7\22\2\2|}\7\f")
+        buf.write("\2\2}~\7\r\2\2~\u00d4\7\5\2\2\177\u0080\7\66\2\2\u0080")
+        buf.write("\u0081\7\17\2\2\u0081\u0082\7\23\2\2\u0082\u0083\7\f\2")
+        buf.write("\2\u0083\u0084\7\r\2\2\u0084\u00d4\7\5\2\2\u0085\u0086")
+        buf.write("\7\66\2\2\u0086\u0087\7\17\2\2\u0087\u0088\7\24\2\2\u0088")
+        buf.write("\u0089\7\f\2\2\u0089\u008a\7\r\2\2\u008a\u00d4\7\5\2\2")
+        buf.write("\u008b\u008c\7\66\2\2\u008c\u008d\7\17\2\2\u008d\u008e")
+        buf.write("\7\25\2\2\u008e\u008f\7\f\2\2\u008f\u0090\7\63\2\2\u0090")
+        buf.write("\u0091\7\r\2\2\u0091\u00d4\7\5\2\2\u0092\u0093\7\66\2")
+        buf.write("\2\u0093\u0094\7\17\2\2\u0094\u0095\7\26\2\2\u0095\u0096")
+        buf.write("\7\f\2\2\u0096\u0097\7\r\2\2\u0097\u00d4\7\5\2\2\u0098")
+        buf.write("\u0099\7\66\2\2\u0099\u009a\7\17\2\2\u009a\u009b\7\27")
+        buf.write("\2\2\u009b\u009c\7\f\2\2\u009c\u009d\7\63\2\2\u009d\u009e")
+        buf.write("\7\30\2\2\u009e\u009f\7\63\2\2\u009f\u00a0\7\r\2\2\u00a0")
+        buf.write("\u00d4\7\5\2\2\u00a1\u00a2\7\66\2\2\u00a2\u00a3\7\17\2")
+        buf.write("\2\u00a3\u00a4\7\31\2\2\u00a4\u00a5\7\f\2\2\u00a5\u00a6")
+        buf.write("\7\r\2\2\u00a6\u00d4\7\5\2\2\u00a7\u00a8\7\66\2\2\u00a8")
+        buf.write("\u00a9\7\17\2\2\u00a9\u00aa\7\32\2\2\u00aa\u00ab\7\f\2")
+        buf.write("\2\u00ab\u00ac\7\r\2\2\u00ac\u00d4\7\5\2\2\u00ad\u00ae")
+        buf.write("\7\66\2\2\u00ae\u00af\7\17\2\2\u00af\u00b0\7\33\2\2\u00b0")
+        buf.write("\u00b1\7\f\2\2\u00b1\u00b2\7\r\2\2\u00b2\u00d4\7\5\2\2")
+        buf.write("\u00b3\u00b4\7\66\2\2\u00b4\u00b5\7\17\2\2\u00b5\u00b6")
+        buf.write("\7\34\2\2\u00b6\u00b7\7\f\2\2\u00b7\u00b8\7\r\2\2\u00b8")
+        buf.write("\u00d4\7\5\2\2\u00b9\u00ba\7\66\2\2\u00ba\u00bb\7\17\2")
+        buf.write("\2\u00bb\u00bc\7\35\2\2\u00bc\u00bd\7\f\2\2\u00bd\u00be")
+        buf.write("\7\r\2\2\u00be\u00d4\7\5\2\2\u00bf\u00c0\7\66\2\2\u00c0")
+        buf.write("\u00c1\7\17\2\2\u00c1\u00c2\7\36\2\2\u00c2\u00c3\7\f\2")
+        buf.write("\2\u00c3\u00c4\7\r\2\2\u00c4\u00d4\7\5\2\2\u00c5\u00c6")
+        buf.write("\7\66\2\2\u00c6\u00c7\7\17\2\2\u00c7\u00c8\7\37\2\2\u00c8")
+        buf.write("\u00c9\7\f\2\2\u00c9\u00ca\7\63\2\2\u00ca\u00cb\7\r\2")
+        buf.write("\2\u00cb\u00d4\7\5\2\2\u00cc\u00cd\7\66\2\2\u00cd\u00ce")
+        buf.write("\7\17\2\2\u00ce\u00cf\7 \2\2\u00cf\u00d0\7\f\2\2\u00d0")
+        buf.write("\u00d1\7\63\2\2\u00d1\u00d2\7\r\2\2\u00d2\u00d4\7\5\2")
+        buf.write("\2\u00d3m\3\2\2\2\u00d3s\3\2\2\2\u00d3y\3\2\2\2\u00d3")
+        buf.write("\177\3\2\2\2\u00d3\u0085\3\2\2\2\u00d3\u008b\3\2\2\2\u00d3")
+        buf.write("\u0092\3\2\2\2\u00d3\u0098\3\2\2\2\u00d3\u00a1\3\2\2\2")
+        buf.write("\u00d3\u00a7\3\2\2\2\u00d3\u00ad\3\2\2\2\u00d3\u00b3\3")
+        buf.write("\2\2\2\u00d3\u00b9\3\2\2\2\u00d3\u00bf\3\2\2\2\u00d3\u00c5")
+        buf.write("\3\2\2\2\u00d3\u00cc\3\2\2\2\u00d4\27\3\2\2\2\u00d5\u00d6")
+        buf.write("\7\66\2\2\u00d6\u00d7\7\17\2\2\u00d7\u00d8\7!\2\2\u00d8")
+        buf.write("\u00d9\7\f\2\2\u00d9\u00da\7\63\2\2\u00da\u00db\7\30\2")
+        buf.write("\2\u00db\u00dc\7\63\2\2\u00dc\u00dd\7\r\2\2\u00dd\u00f3")
+        buf.write("\7\5\2\2\u00de\u00df\7\66\2\2\u00df\u00e0\7\17\2\2\u00e0")
+        buf.write("\u00e1\7!\2\2\u00e1\u00e2\7\f\2\2\u00e2\u00e3\7\63\2\2")
+        buf.write("\u00e3\u00e4\7\30\2\2\u00e4\u00e5\7\63\2\2\u00e5\u00e6")
+        buf.write("\7\30\2\2\u00e6\u00e7\7\63\2\2\u00e7\u00e8\7\r\2\2\u00e8")
+        buf.write("\u00f3\7\5\2\2\u00e9\u00ea\7\66\2\2\u00ea\u00eb\7\17\2")
+        buf.write("\2\u00eb\u00ec\7\"\2\2\u00ec\u00ed\7\f\2\2\u00ed\u00ee")
+        buf.write("\7\63\2\2\u00ee\u00ef\7\30\2\2\u00ef\u00f0\7\63\2\2\u00f0")
+        buf.write("\u00f1\7\r\2\2\u00f1\u00f3\7\5\2\2\u00f2\u00d5\3\2\2\2")
+        buf.write("\u00f2\u00de\3\2\2\2\u00f2\u00e9\3\2\2\2\u00f3\31\3\2")
+        buf.write("\2\2\u00f4\u00f5\7\3\2\2\u00f5\u00f9\7\63\2\2\u00f6\u00f8")
+        buf.write("\13\2\2\2\u00f7\u00f6\3\2\2\2\u00f8\u00fb\3\2\2\2\u00f9")
+        buf.write("\u00fa\3\2\2\2\u00f9\u00f7\3\2\2\2\u00fa\u00fc\3\2\2\2")
+        buf.write("\u00fb\u00f9\3\2\2\2\u00fc\u0110\7\4\2\2\u00fd\u00fe\7")
+        buf.write("\3\2\2\u00fe\u0102\7\67\2\2\u00ff\u0101\13\2\2\2\u0100")
+        buf.write("\u00ff\3\2\2\2\u0101\u0104\3\2\2\2\u0102\u0103\3\2\2\2")
+        buf.write("\u0102\u0100\3\2\2\2\u0103\u0105\3\2\2\2\u0104\u0102\3")
+        buf.write("\2\2\2\u0105\u0110\7\4\2\2\u0106\u0107\7\3\2\2\u0107\u010b")
+        buf.write("\7\64\2\2\u0108\u010a\13\2\2\2\u0109\u0108\3\2\2\2\u010a")
+        buf.write("\u010d\3\2\2\2\u010b\u010c\3\2\2\2\u010b\u0109\3\2\2\2")
+        buf.write("\u010c\u010e\3\2\2\2\u010d\u010b\3\2\2\2\u010e\u0110\7")
+        buf.write("\4\2\2\u010f\u00f4\3\2\2\2\u010f\u00fd\3\2\2\2\u010f\u0106")
+        buf.write("\3\2\2\2\u0110\33\3\2\2\2\u0111\u0112\7\3\2\2\u0112\u0113")
+        buf.write("\5\32\16\2\u0113\u0117\5\36\20\2\u0114\u0116\13\2\2\2")
+        buf.write("\u0115\u0114\3\2\2\2\u0116\u0119\3\2\2\2\u0117\u0118\3")
+        buf.write("\2\2\2\u0117\u0115\3\2\2\2\u0118\u011a\3\2\2\2\u0119\u0117")
+        buf.write("\3\2\2\2\u011a\u011b\7\4\2\2\u011b\35\3\2\2\2\u011c\u011d")
+        buf.write("\7\5\2\2\u011d\u011e\5\32\16\2\u011e\37\3\2\2\2\u011f")
+        buf.write("\u0120\7\66\2\2\u0120\u0121\7\17\2\2\u0121\u0122\7#\2")
+        buf.write("\2\u0122\u0123\7\f\2\2\u0123\u0124\7\r\2\2\u0124\u0125")
+        buf.write("\7\5\2\2\u0125!\3\2\2\2\u0126\u012e\7$\2\2\u0127\u012e")
+        buf.write("\7%\2\2\u0128\u012e\7&\2\2\u0129\u012e\7\'\2\2\u012a\u012e")
+        buf.write("\7(\2\2\u012b\u012e\7)\2\2\u012c\u012e\5\n\6\2\u012d\u0126")
+        buf.write("\3\2\2\2\u012d\u0127\3\2\2\2\u012d\u0128\3\2\2\2\u012d")
+        buf.write("\u0129\3\2\2\2\u012d\u012a\3\2\2\2\u012d\u012b\3\2\2\2")
+        buf.write("\u012d\u012c\3\2\2\2\u012e#\3\2\2\2\u012f\u0130\7*\2\2")
+        buf.write("\u0130\u0131\7\66\2\2\u0131\u0132\7\n\2\2\u0132\u0133")
+        buf.write("\t\4\2\2\u0133\u0134\7+\2\2\u0134\u0135\7\66\2\2\u0135")
+        buf.write("\u0136\7,\2\2\u0136\u0137\5\4\3\2\u0137\u0138\7-\2\2\u0138")
+        buf.write("%\3\2\2\2\16,\66Jk\u00d3\u00f2\u00f9\u0102\u010b\u010f")
+        buf.write("\u0117\u012d")
         return buf.getvalue()
 
 
@@ -160,32 +161,30 @@ class EZgraphParser ( Parser ):
 
     sharedContextCache = PredictionContextCache()
 
-    literalNames = [ u"<INVALID>", u"'['", u"']'", u"';'", u"'NDGraph'", 
-                     u"'DGraph'", u"'DWGraph'", u"'NDWGraph'", u"'='", u"'read'", 
-                     u"'('", u"')'", u"'print'", u"'.'", u"'getNumEdges'", 
-                     u"'getNodes'", u"'getEdges'", u"'getSize'", u"'getMatrix'", 
-                     u"'getDistancesFromNode'", u"'getAllDistances'", u"'getDistance'", 
-                     u"','", u"'getShortestPath'", u"'getMinimunSpanningTree'", 
-                     u"'getMaximunSpanningTree'", u"'hasCycle'", u"'getSCC'", 
-                     u"'getTopologicalOrder'", u"'BFS'", u"'DFS'", u"'addEdge'", 
-                     u"'deleteEdge'", u"'paint'", u"'int'", u"'string'", 
-                     u"'double'", u"'bool'", u"'List'", u"'Matrix'", u"'for'", 
-                     u"':'", u"'{'", u"'}'" ]
+    literalNames = [ "<INVALID>", "'['", "']'", "';'", "'NDGraph'", "'DGraph'", 
+                     "'DWGraph'", "'NDWGraph'", "'='", "'read'", "'('", 
+                     "')'", "'print'", "'.'", "'getNumEdges'", "'getNodes'", 
+                     "'getEdges'", "'getSize'", "'getMatrix'", "'getDistancesFromNode'", 
+                     "'getAllDistances'", "'getDistance'", "','", "'getShortestPath'", 
+                     "'getMinimunSpanningTree'", "'getMaximunSpanningTree'", 
+                     "'hasCycle'", "'getSCC'", "'getTopologicalOrder'", 
+                     "'BFS'", "'DFS'", "'addEdge'", "'deleteEdge'", "'paint'", 
+                     "'int'", "'string'", "'double'", "'bool'", "'List'", 
+                     "'Matrix'", "'for'", "':'", "'{'", "'}'" ]
 
-    symbolicNames = [ u"<INVALID>", u"<INVALID>", u"<INVALID>", u"<INVALID>", 
-                      u"<INVALID>", u"<INVALID>", u"<INVALID>", u"<INVALID>", 
-                      u"<INVALID>", u"<INVALID>", u"<INVALID>", u"<INVALID>", 
-                      u"<INVALID>", u"<INVALID>", u"<INVALID>", u"<INVALID>", 
-                      u"<INVALID>", u"<INVALID>", u"<INVALID>", u"<INVALID>", 
-                      u"<INVALID>", u"<INVALID>", u"<INVALID>", u"<INVALID>", 
-                      u"<INVALID>", u"<INVALID>", u"<INVALID>", u"<INVALID>", 
-                      u"<INVALID>", u"<INVALID>", u"<INVALID>", u"<INVALID>", 
-                      u"<INVALID>", u"<INVALID>", u"<INVALID>", u"<INVALID>", 
-                      u"<INVALID>", u"<INVALID>", u"<INVALID>", u"<INVALID>", 
-                      u"<INVALID>", u"<INVALID>", u"<INVALID>", u"<INVALID>", 
-                      u"COMMENT", u"LINE_COMMENT", u"EASTEREGG", u"WS", 
-                      u"DOUBLE", u"INT", u"STRING", u"BOOLEANO", u"ID", 
-                      u"ENTERO", u"FLOAT" ]
+    symbolicNames = [ "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
+                      "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
+                      "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
+                      "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
+                      "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
+                      "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
+                      "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
+                      "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
+                      "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
+                      "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
+                      "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
+                      "COMMENT", "LINE_COMMENT", "EASTEREGG", "WS", "DOUBLE", 
+                      "INT", "STRING", "BOOLEANO", "ID", "FLOAT" ]
 
     RULE_s = 0
     RULE_exp = 1
@@ -206,10 +205,10 @@ class EZgraphParser ( Parser ):
     RULE_tipo = 16
     RULE_ciclo = 17
 
-    ruleNames =  [ u"s", u"exp", u"e", u"creacion", u"tipografo", u"declaracion", 
-                   u"asignacion", u"leer", u"imprimir", u"value", u"funciondeclaracion", 
-                   u"funcion", u"lista", u"matriz", u"dentro", u"pintar", 
-                   u"tipo", u"ciclo" ]
+    ruleNames =  [ "s", "exp", "e", "creacion", "tipografo", "declaracion", 
+                   "asignacion", "leer", "imprimir", "value", "funciondeclaracion", 
+                   "funcion", "lista", "matriz", "dentro", "pintar", "tipo", 
+                   "ciclo" ]
 
     EOF = Token.EOF
     T__0=1
@@ -264,11 +263,10 @@ class EZgraphParser ( Parser ):
     STRING=50
     BOOLEANO=51
     ID=52
-    ENTERO=53
-    FLOAT=54
+    FLOAT=53
 
-    def __init__(self, input, output=sys.stdout):
-        super(EZgraphParser, self).__init__(input, output=output)
+    def __init__(self, input:TokenStream, output:TextIO = sys.stdout):
+        super().__init__(input, output)
         self.checkVersion("4.9.1")
         self._interp = ParserATNSimulator(self, self.atn, self.decisionsToDFA, self.sharedContextCache)
         self._predicates = None
@@ -277,9 +275,10 @@ class EZgraphParser ( Parser ):
 
 
     class SContext(ParserRuleContext):
+        __slots__ = 'parser'
 
-        def __init__(self, parser, parent=None, invokingState=-1):
-            super(EZgraphParser.SContext, self).__init__(parent, invokingState)
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+            super().__init__(parent, invokingState)
             self.parser = parser
 
         def exp(self):
@@ -289,16 +288,16 @@ class EZgraphParser ( Parser ):
         def getRuleIndex(self):
             return EZgraphParser.RULE_s
 
-        def enterRule(self, listener):
-            if hasattr(listener, "enterS"):
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterS" ):
                 listener.enterS(self)
 
-        def exitRule(self, listener):
-            if hasattr(listener, "exitS"):
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitS" ):
                 listener.exitS(self)
 
-        def accept(self, visitor):
-            if hasattr(visitor, "visitS"):
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitS" ):
                 return visitor.visitS(self)
             else:
                 return visitor.visitChildren(self)
@@ -324,9 +323,10 @@ class EZgraphParser ( Parser ):
 
 
     class ExpContext(ParserRuleContext):
+        __slots__ = 'parser'
 
-        def __init__(self, parser, parent=None, invokingState=-1):
-            super(EZgraphParser.ExpContext, self).__init__(parent, invokingState)
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+            super().__init__(parent, invokingState)
             self.parser = parser
 
         def e(self):
@@ -340,16 +340,16 @@ class EZgraphParser ( Parser ):
         def getRuleIndex(self):
             return EZgraphParser.RULE_exp
 
-        def enterRule(self, listener):
-            if hasattr(listener, "enterExp"):
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterExp" ):
                 listener.enterExp(self)
 
-        def exitRule(self, listener):
-            if hasattr(listener, "exitExp"):
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitExp" ):
                 listener.exitExp(self)
 
-        def accept(self, visitor):
-            if hasattr(visitor, "visitExp"):
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitExp" ):
                 return visitor.visitExp(self)
             else:
                 return visitor.visitChildren(self)
@@ -389,9 +389,10 @@ class EZgraphParser ( Parser ):
 
 
     class EContext(ParserRuleContext):
+        __slots__ = 'parser'
 
-        def __init__(self, parser, parent=None, invokingState=-1):
-            super(EZgraphParser.EContext, self).__init__(parent, invokingState)
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+            super().__init__(parent, invokingState)
             self.parser = parser
 
         def declaracion(self):
@@ -429,16 +430,16 @@ class EZgraphParser ( Parser ):
         def getRuleIndex(self):
             return EZgraphParser.RULE_e
 
-        def enterRule(self, listener):
-            if hasattr(listener, "enterE"):
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterE" ):
                 listener.enterE(self)
 
-        def exitRule(self, listener):
-            if hasattr(listener, "exitE"):
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitE" ):
                 listener.exitE(self)
 
-        def accept(self, visitor):
-            if hasattr(visitor, "visitE"):
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitE" ):
                 return visitor.visitE(self)
             else:
                 return visitor.visitChildren(self)
@@ -506,9 +507,10 @@ class EZgraphParser ( Parser ):
 
 
     class CreacionContext(ParserRuleContext):
+        __slots__ = 'parser'
 
-        def __init__(self, parser, parent=None, invokingState=-1):
-            super(EZgraphParser.CreacionContext, self).__init__(parent, invokingState)
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+            super().__init__(parent, invokingState)
             self.parser = parser
 
         def tipografo(self):
@@ -518,22 +520,22 @@ class EZgraphParser ( Parser ):
         def ID(self):
             return self.getToken(EZgraphParser.ID, 0)
 
-        def ENTERO(self):
-            return self.getToken(EZgraphParser.ENTERO, 0)
+        def INT(self):
+            return self.getToken(EZgraphParser.INT, 0)
 
         def getRuleIndex(self):
             return EZgraphParser.RULE_creacion
 
-        def enterRule(self, listener):
-            if hasattr(listener, "enterCreacion"):
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterCreacion" ):
                 listener.enterCreacion(self)
 
-        def exitRule(self, listener):
-            if hasattr(listener, "exitCreacion"):
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitCreacion" ):
                 listener.exitCreacion(self)
 
-        def accept(self, visitor):
-            if hasattr(visitor, "visitCreacion"):
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitCreacion" ):
                 return visitor.visitCreacion(self)
             else:
                 return visitor.visitChildren(self)
@@ -554,7 +556,7 @@ class EZgraphParser ( Parser ):
             self.state = 56
             self.match(EZgraphParser.T__0)
             self.state = 57
-            self.match(EZgraphParser.ENTERO)
+            self.match(EZgraphParser.INT)
             self.state = 58
             self.match(EZgraphParser.T__1)
             self.state = 59
@@ -569,25 +571,26 @@ class EZgraphParser ( Parser ):
 
 
     class TipografoContext(ParserRuleContext):
+        __slots__ = 'parser'
 
-        def __init__(self, parser, parent=None, invokingState=-1):
-            super(EZgraphParser.TipografoContext, self).__init__(parent, invokingState)
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+            super().__init__(parent, invokingState)
             self.parser = parser
 
 
         def getRuleIndex(self):
             return EZgraphParser.RULE_tipografo
 
-        def enterRule(self, listener):
-            if hasattr(listener, "enterTipografo"):
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterTipografo" ):
                 listener.enterTipografo(self)
 
-        def exitRule(self, listener):
-            if hasattr(listener, "exitTipografo"):
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitTipografo" ):
                 listener.exitTipografo(self)
 
-        def accept(self, visitor):
-            if hasattr(visitor, "visitTipografo"):
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitTipografo" ):
                 return visitor.visitTipografo(self)
             else:
                 return visitor.visitChildren(self)
@@ -619,9 +622,10 @@ class EZgraphParser ( Parser ):
 
 
     class DeclaracionContext(ParserRuleContext):
+        __slots__ = 'parser'
 
-        def __init__(self, parser, parent=None, invokingState=-1):
-            super(EZgraphParser.DeclaracionContext, self).__init__(parent, invokingState)
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+            super().__init__(parent, invokingState)
             self.parser = parser
 
         def tipo(self):
@@ -638,16 +642,16 @@ class EZgraphParser ( Parser ):
         def getRuleIndex(self):
             return EZgraphParser.RULE_declaracion
 
-        def enterRule(self, listener):
-            if hasattr(listener, "enterDeclaracion"):
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterDeclaracion" ):
                 listener.enterDeclaracion(self)
 
-        def exitRule(self, listener):
-            if hasattr(listener, "exitDeclaracion"):
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitDeclaracion" ):
                 listener.exitDeclaracion(self)
 
-        def accept(self, visitor):
-            if hasattr(visitor, "visitDeclaracion"):
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitDeclaracion" ):
                 return visitor.visitDeclaracion(self)
             else:
                 return visitor.visitChildren(self)
@@ -696,9 +700,10 @@ class EZgraphParser ( Parser ):
 
 
     class AsignacionContext(ParserRuleContext):
+        __slots__ = 'parser'
 
-        def __init__(self, parser, parent=None, invokingState=-1):
-            super(EZgraphParser.AsignacionContext, self).__init__(parent, invokingState)
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+            super().__init__(parent, invokingState)
             self.parser = parser
 
         def ID(self):
@@ -711,16 +716,16 @@ class EZgraphParser ( Parser ):
         def getRuleIndex(self):
             return EZgraphParser.RULE_asignacion
 
-        def enterRule(self, listener):
-            if hasattr(listener, "enterAsignacion"):
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterAsignacion" ):
                 listener.enterAsignacion(self)
 
-        def exitRule(self, listener):
-            if hasattr(listener, "exitAsignacion"):
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitAsignacion" ):
                 listener.exitAsignacion(self)
 
-        def accept(self, visitor):
-            if hasattr(visitor, "visitAsignacion"):
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitAsignacion" ):
                 return visitor.visitAsignacion(self)
             else:
                 return visitor.visitChildren(self)
@@ -750,9 +755,10 @@ class EZgraphParser ( Parser ):
 
 
     class LeerContext(ParserRuleContext):
+        __slots__ = 'parser'
 
-        def __init__(self, parser, parent=None, invokingState=-1):
-            super(EZgraphParser.LeerContext, self).__init__(parent, invokingState)
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+            super().__init__(parent, invokingState)
             self.parser = parser
 
         def ID(self):
@@ -761,16 +767,16 @@ class EZgraphParser ( Parser ):
         def getRuleIndex(self):
             return EZgraphParser.RULE_leer
 
-        def enterRule(self, listener):
-            if hasattr(listener, "enterLeer"):
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterLeer" ):
                 listener.enterLeer(self)
 
-        def exitRule(self, listener):
-            if hasattr(listener, "exitLeer"):
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitLeer" ):
                 listener.exitLeer(self)
 
-        def accept(self, visitor):
-            if hasattr(visitor, "visitLeer"):
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitLeer" ):
                 return visitor.visitLeer(self)
             else:
                 return visitor.visitChildren(self)
@@ -804,9 +810,10 @@ class EZgraphParser ( Parser ):
 
 
     class ImprimirContext(ParserRuleContext):
+        __slots__ = 'parser'
 
-        def __init__(self, parser, parent=None, invokingState=-1):
-            super(EZgraphParser.ImprimirContext, self).__init__(parent, invokingState)
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+            super().__init__(parent, invokingState)
             self.parser = parser
 
         def STRING(self):
@@ -818,16 +825,16 @@ class EZgraphParser ( Parser ):
         def getRuleIndex(self):
             return EZgraphParser.RULE_imprimir
 
-        def enterRule(self, listener):
-            if hasattr(listener, "enterImprimir"):
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterImprimir" ):
                 listener.enterImprimir(self)
 
-        def exitRule(self, listener):
-            if hasattr(listener, "exitImprimir"):
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitImprimir" ):
                 listener.exitImprimir(self)
 
-        def accept(self, visitor):
-            if hasattr(visitor, "visitImprimir"):
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitImprimir" ):
                 return visitor.visitImprimir(self)
             else:
                 return visitor.visitChildren(self)
@@ -867,9 +874,10 @@ class EZgraphParser ( Parser ):
 
 
     class ValueContext(ParserRuleContext):
+        __slots__ = 'parser'
 
-        def __init__(self, parser, parent=None, invokingState=-1):
-            super(EZgraphParser.ValueContext, self).__init__(parent, invokingState)
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+            super().__init__(parent, invokingState)
             self.parser = parser
 
         def funciondeclaracion(self):
@@ -899,16 +907,16 @@ class EZgraphParser ( Parser ):
         def getRuleIndex(self):
             return EZgraphParser.RULE_value
 
-        def enterRule(self, listener):
-            if hasattr(listener, "enterValue"):
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterValue" ):
                 listener.enterValue(self)
 
-        def exitRule(self, listener):
-            if hasattr(listener, "exitValue"):
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitValue" ):
                 listener.exitValue(self)
 
-        def accept(self, visitor):
-            if hasattr(visitor, "visitValue"):
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitValue" ):
                 return visitor.visitValue(self)
             else:
                 return visitor.visitChildren(self)
@@ -989,15 +997,16 @@ class EZgraphParser ( Parser ):
 
 
     class FunciondeclaracionContext(ParserRuleContext):
+        __slots__ = 'parser'
 
-        def __init__(self, parser, parent=None, invokingState=-1):
-            super(EZgraphParser.FunciondeclaracionContext, self).__init__(parent, invokingState)
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+            super().__init__(parent, invokingState)
             self.parser = parser
 
         def ID(self):
             return self.getToken(EZgraphParser.ID, 0)
 
-        def INT(self, i=None):
+        def INT(self, i:int=None):
             if i is None:
                 return self.getTokens(EZgraphParser.INT)
             else:
@@ -1006,16 +1015,16 @@ class EZgraphParser ( Parser ):
         def getRuleIndex(self):
             return EZgraphParser.RULE_funciondeclaracion
 
-        def enterRule(self, listener):
-            if hasattr(listener, "enterFunciondeclaracion"):
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterFunciondeclaracion" ):
                 listener.enterFunciondeclaracion(self)
 
-        def exitRule(self, listener):
-            if hasattr(listener, "exitFunciondeclaracion"):
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitFunciondeclaracion" ):
                 listener.exitFunciondeclaracion(self)
 
-        def accept(self, visitor):
-            if hasattr(visitor, "visitFunciondeclaracion"):
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitFunciondeclaracion" ):
                 return visitor.visitFunciondeclaracion(self)
             else:
                 return visitor.visitChildren(self)
@@ -1310,15 +1319,16 @@ class EZgraphParser ( Parser ):
 
 
     class FuncionContext(ParserRuleContext):
+        __slots__ = 'parser'
 
-        def __init__(self, parser, parent=None, invokingState=-1):
-            super(EZgraphParser.FuncionContext, self).__init__(parent, invokingState)
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+            super().__init__(parent, invokingState)
             self.parser = parser
 
         def ID(self):
             return self.getToken(EZgraphParser.ID, 0)
 
-        def INT(self, i=None):
+        def INT(self, i:int=None):
             if i is None:
                 return self.getTokens(EZgraphParser.INT)
             else:
@@ -1327,16 +1337,16 @@ class EZgraphParser ( Parser ):
         def getRuleIndex(self):
             return EZgraphParser.RULE_funcion
 
-        def enterRule(self, listener):
-            if hasattr(listener, "enterFuncion"):
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterFuncion" ):
                 listener.enterFuncion(self)
 
-        def exitRule(self, listener):
-            if hasattr(listener, "exitFuncion"):
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitFuncion" ):
                 listener.exitFuncion(self)
 
-        def accept(self, visitor):
-            if hasattr(visitor, "visitFuncion"):
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitFuncion" ):
                 return visitor.visitFuncion(self)
             else:
                 return visitor.visitChildren(self)
@@ -1433,9 +1443,10 @@ class EZgraphParser ( Parser ):
 
 
     class ListaContext(ParserRuleContext):
+        __slots__ = 'parser'
 
-        def __init__(self, parser, parent=None, invokingState=-1):
-            super(EZgraphParser.ListaContext, self).__init__(parent, invokingState)
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+            super().__init__(parent, invokingState)
             self.parser = parser
 
         def INT(self):
@@ -1450,16 +1461,16 @@ class EZgraphParser ( Parser ):
         def getRuleIndex(self):
             return EZgraphParser.RULE_lista
 
-        def enterRule(self, listener):
-            if hasattr(listener, "enterLista"):
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterLista" ):
                 listener.enterLista(self)
 
-        def exitRule(self, listener):
-            if hasattr(listener, "exitLista"):
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitLista" ):
                 listener.exitLista(self)
 
-        def accept(self, visitor):
-            if hasattr(visitor, "visitLista"):
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitLista" ):
                 return visitor.visitLista(self)
             else:
                 return visitor.visitChildren(self)
@@ -1552,9 +1563,10 @@ class EZgraphParser ( Parser ):
 
 
     class MatrizContext(ParserRuleContext):
+        __slots__ = 'parser'
 
-        def __init__(self, parser, parent=None, invokingState=-1):
-            super(EZgraphParser.MatrizContext, self).__init__(parent, invokingState)
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+            super().__init__(parent, invokingState)
             self.parser = parser
 
         def lista(self):
@@ -1568,16 +1580,16 @@ class EZgraphParser ( Parser ):
         def getRuleIndex(self):
             return EZgraphParser.RULE_matriz
 
-        def enterRule(self, listener):
-            if hasattr(listener, "enterMatriz"):
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterMatriz" ):
                 listener.enterMatriz(self)
 
-        def exitRule(self, listener):
-            if hasattr(listener, "exitMatriz"):
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitMatriz" ):
                 listener.exitMatriz(self)
 
-        def accept(self, visitor):
-            if hasattr(visitor, "visitMatriz"):
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitMatriz" ):
                 return visitor.visitMatriz(self)
             else:
                 return visitor.visitChildren(self)
@@ -1620,9 +1632,10 @@ class EZgraphParser ( Parser ):
 
 
     class DentroContext(ParserRuleContext):
+        __slots__ = 'parser'
 
-        def __init__(self, parser, parent=None, invokingState=-1):
-            super(EZgraphParser.DentroContext, self).__init__(parent, invokingState)
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+            super().__init__(parent, invokingState)
             self.parser = parser
 
         def lista(self):
@@ -1632,16 +1645,16 @@ class EZgraphParser ( Parser ):
         def getRuleIndex(self):
             return EZgraphParser.RULE_dentro
 
-        def enterRule(self, listener):
-            if hasattr(listener, "enterDentro"):
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterDentro" ):
                 listener.enterDentro(self)
 
-        def exitRule(self, listener):
-            if hasattr(listener, "exitDentro"):
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitDentro" ):
                 listener.exitDentro(self)
 
-        def accept(self, visitor):
-            if hasattr(visitor, "visitDentro"):
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitDentro" ):
                 return visitor.visitDentro(self)
             else:
                 return visitor.visitChildren(self)
@@ -1669,9 +1682,10 @@ class EZgraphParser ( Parser ):
 
 
     class PintarContext(ParserRuleContext):
+        __slots__ = 'parser'
 
-        def __init__(self, parser, parent=None, invokingState=-1):
-            super(EZgraphParser.PintarContext, self).__init__(parent, invokingState)
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+            super().__init__(parent, invokingState)
             self.parser = parser
 
         def ID(self):
@@ -1680,16 +1694,16 @@ class EZgraphParser ( Parser ):
         def getRuleIndex(self):
             return EZgraphParser.RULE_pintar
 
-        def enterRule(self, listener):
-            if hasattr(listener, "enterPintar"):
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterPintar" ):
                 listener.enterPintar(self)
 
-        def exitRule(self, listener):
-            if hasattr(listener, "exitPintar"):
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitPintar" ):
                 listener.exitPintar(self)
 
-        def accept(self, visitor):
-            if hasattr(visitor, "visitPintar"):
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitPintar" ):
                 return visitor.visitPintar(self)
             else:
                 return visitor.visitChildren(self)
@@ -1725,9 +1739,10 @@ class EZgraphParser ( Parser ):
 
 
     class TipoContext(ParserRuleContext):
+        __slots__ = 'parser'
 
-        def __init__(self, parser, parent=None, invokingState=-1):
-            super(EZgraphParser.TipoContext, self).__init__(parent, invokingState)
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+            super().__init__(parent, invokingState)
             self.parser = parser
 
         def tipografo(self):
@@ -1737,16 +1752,16 @@ class EZgraphParser ( Parser ):
         def getRuleIndex(self):
             return EZgraphParser.RULE_tipo
 
-        def enterRule(self, listener):
-            if hasattr(listener, "enterTipo"):
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterTipo" ):
                 listener.enterTipo(self)
 
-        def exitRule(self, listener):
-            if hasattr(listener, "exitTipo"):
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitTipo" ):
                 listener.exitTipo(self)
 
-        def accept(self, visitor):
-            if hasattr(visitor, "visitTipo"):
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitTipo" ):
                 return visitor.visitTipo(self)
             else:
                 return visitor.visitChildren(self)
@@ -1810,12 +1825,13 @@ class EZgraphParser ( Parser ):
 
 
     class CicloContext(ParserRuleContext):
+        __slots__ = 'parser'
 
-        def __init__(self, parser, parent=None, invokingState=-1):
-            super(EZgraphParser.CicloContext, self).__init__(parent, invokingState)
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+            super().__init__(parent, invokingState)
             self.parser = parser
 
-        def ID(self, i=None):
+        def ID(self, i:int=None):
             if i is None:
                 return self.getTokens(EZgraphParser.ID)
             else:
@@ -1831,16 +1847,16 @@ class EZgraphParser ( Parser ):
         def getRuleIndex(self):
             return EZgraphParser.RULE_ciclo
 
-        def enterRule(self, listener):
-            if hasattr(listener, "enterCiclo"):
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterCiclo" ):
                 listener.enterCiclo(self)
 
-        def exitRule(self, listener):
-            if hasattr(listener, "exitCiclo"):
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitCiclo" ):
                 listener.exitCiclo(self)
 
-        def accept(self, visitor):
-            if hasattr(visitor, "visitCiclo"):
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitCiclo" ):
                 return visitor.visitCiclo(self)
             else:
                 return visitor.visitChildren(self)

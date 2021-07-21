@@ -8,7 +8,7 @@ exp   : e exp
 e   : (declaracion | creacion | asignacion | leer | imprimir | ciclo | pintar | funcion);
 
 
-creacion    : tipografo ID '[' ENTERO ']' ';' ;
+creacion    : tipografo ID '[' INT ']' ';' ;
 
 tipografo   : 'NDGraph'
             | 'DGraph'
