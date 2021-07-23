@@ -21,7 +21,7 @@ imprimir    : 'print' '(' value ')' ';';
 value   : funciondeclaracion
         | STRING ';'
         | INT ';'
-        | FLOAT ';'
+        | DOUBLE ';'
         | BOOLEANO ';'
         | ID;
 
