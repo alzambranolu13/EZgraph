@@ -13,12 +13,8 @@ class UndirectedWeightedGraph:
 
     def addEdge( self , node1 , node2 , weight ):
         if( node1 == node2 ): return False
-        for edge in self.adjacencyList[node1]:
-            if edge[0] == node2:
-                return False
-        for edge in self.adjacencyList[node2]:
-            if edge[0] == node1:
-                return False
+        if( self.adjacencyMatrix[node1][node2] != None ): return False
+        if( self.adjacencyMatrix[node2][node1] != None ): return False
         self.numberOfEdges = self.numberOfEdges + 1
         self.adjacencyMatrix[node1][node2] = weight
         self.adjacencyMatrix[node2][node1] = weight

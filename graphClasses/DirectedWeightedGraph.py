@@ -13,9 +13,7 @@ class DirectedWeightedGraph:
 
     def addEdge( self , node1 , node2 , weight ):
         if( node1 == node2 ): return False
-        for edge in self.adjacencyList[node1]:
-            if edge[0] == node2:
-                return False
+        if( self.adjacencyMatrix[node1][node2] != None ): return False
         self.numberOfEdges = self.numberOfEdges + 1
         self.adjacencyMatrix[node1][node2] = weight
         self.adjacencyList[node1].append( [node2 , weight] )
