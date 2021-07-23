@@ -12,6 +12,7 @@ class DirectedGraph:
             self.adjacencyList.append( [] )
 
     def addEdge( self , node1 , node2 ):
+        if( node1 == node2 ): return False
         for edge in self.adjacencyList[node1]:
             if edge == node2:
                 return False
