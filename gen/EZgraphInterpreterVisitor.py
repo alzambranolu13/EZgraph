@@ -54,7 +54,6 @@ class EZgraphInterpreterVisitor(EZgraphVisitor):
         size = int(str(ctx.INT()))
 
         if ( tipo == 'NDGraph'):
-            #print('entre')
             dicc_table[id]= UndirectedGraph(size)
         elif ( tipo == 'DGraph'):
             dicc_table[id]= DirectedGraph(size)
@@ -62,16 +61,14 @@ class EZgraphInterpreterVisitor(EZgraphVisitor):
             dicc_table[id]= DirectedWeightedGraph(size)
         elif ( tipo == 'NDWGraph'):
             dicc_table[id]= UndirectedWeightedGraph(size)
-        print(dicc_table)
+
 
 
     def visitDeclaracion(self, ctx:EZgraphParser.DeclaracionContext):
         global dicc_table
         id = str(ctx.ID())
         value= self.visitValue(ctx.value())
-        #print(value)
         dicc_table[id]= value
-        print(dicc_table)
 
     def visitValue(self, ctx:EZgraphParser.ValueContext):
         global dicc_table
@@ -90,7 +87,6 @@ class EZgraphInterpreterVisitor(EZgraphVisitor):
                 return False
         elif (ctx.ID() != None):
             if str(ctx.ID()) in dicc_table:
-                #print(str(ctx.ID()))
                 return dicc_table[str(ctx.ID())]
             else:
                 self.Error()
@@ -100,10 +96,8 @@ class EZgraphInterpreterVisitor(EZgraphVisitor):
     def visitFunciondeclaracion(self, ctx:EZgraphParser.FunciondeclaracionContext):
         global dicc_table
         id = str(ctx.ID())
-        print('id',id)
 
         graph = dicc_table[id]
-        print(type(graph))
 
         tipoGrafo=''
         if type(graph) == UndirectedWeightedGraph:
@@ -119,8 +113,6 @@ class EZgraphInterpreterVisitor(EZgraphVisitor):
             self.Error(ctx.start.line,ctx.start.column)
 
         if (id in dicc_table):
-            #print('entre')
-
             if ( ctx.FUNCIONCPARAM() != None):
                 funcion= str(ctx.FUNCIONCPARAM())
                 if funcion == 'getNumEdges':
@@ -135,7 +127,6 @@ class EZgraphInterpreterVisitor(EZgraphVisitor):
                     return graph.minDistanceFromAllToAll()
                 if funcion == 'getMinimumSpanningTree':
                     if tipoGrafo == 'NDW':
-                        print('entre')
                         return graph.MinimumSpanningTree()
                     else:
                         self.Error(ctx.start.line,ctx.start.column)
@@ -165,12 +156,9 @@ class EZgraphInterpreterVisitor(EZgraphVisitor):
                         self.Error(ctx.start.line,ctx.start.column)
                         pass
             elif (ctx.FUNCIONUNPARAM() != None):
-                #print('funcion1',ctx.FUNCIONUNPARAM())
                 funcion = str(ctx.FUNCIONUNPARAM())
-                print('funcion',funcion)
                 node = int(str(ctx.INT()[0]))
                 if funcion == 'getDistanceFromNode':
-                    #print('node', node)
                     return graph.minDistanceFromSourceToAll(node)
                 if funcion == 'BFS':
                     return graph.BFS(node)
@@ -187,9 +175,6 @@ class EZgraphInterpreterVisitor(EZgraphVisitor):
         else:
             self.Error(ctx.start.line,ctx.start.column)
             pass
-        print(graph.getEdges())
-        print(dicc_table)
-        #print(graph.getAdjacencyMatrix())
 
 
     def visitFuncion(self, ctx:EZgraphParser.FuncionContext):
@@ -211,7 +196,6 @@ class EZgraphInterpreterVisitor(EZgraphVisitor):
             pass
 
         weighted = False
-        #print('len',len(ctx.INT()))
         if ctx.DOUBLE() != None or len(ctx.INT()) >= 3:
             if tipoGrafo == 'D' or tipoGrafo == 'ND':
                 self.Error(ctx.start.line,ctx.start.column)
@@ -231,8 +215,6 @@ class EZgraphInterpreterVisitor(EZgraphVisitor):
                 graph.addEdge(int(str(ctx.INT()[0])), int(str(ctx.INT()[1])))
         elif (ctx.DELETEEDGE() != None):
             graph.deleteEdge(int(str(ctx.INT()[0])), int(str(ctx.INT()[1])))
-
-        #print(graph.getEdges())
 
 
     def visitPintar(self, ctx:EZgraphParser.PintarContext):
