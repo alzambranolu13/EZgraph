@@ -13,6 +13,18 @@ class DirectedGraph:
         for i in range(numberOfNodes):
             self.adjacencyList.append( [] )
 
+    def getNodes( self ):
+        return self.nodes
+
+    def getNumEdges( self ):
+        return self.numberOfEdges
+
+    def getAdjacencyList( self ):
+        return self.adjacencyList
+
+    def getAdjacencyMatrix( self ):
+        return self.adjacencyMatrix
+
     def addEdge( self , node1 , node2 ):
         if( node1 == node2 ): return False
         if( self.adjacencyMatrix[node1][node2] != None ): return False
