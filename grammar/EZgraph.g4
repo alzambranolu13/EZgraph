@@ -11,7 +11,7 @@ e   : (declaracion | creacion  | leer | imprimir | ciclo | pintar | funcion );
 creacion    : TIPOGRAFO ID '[' INT ']' ';' ;
 
 
-declaracion         : ID '=' value;
+declaracion         : ID '=' value ';' ;
 
 leer    : 'read' '(' ID ')' ';';
 
@@ -25,12 +25,12 @@ value   : funciondeclaracion
         | BOOLEANO ';'
         | ID;
 
-funciondeclaracion  : ID '.' FUNCIONCPARAM '(' ')' ';'
-                    | ID '.' FUNCIONUNPARAM '('INT')' ';'
-                    | ID '.' FUNCIONDOPARAM '('INT ',' INT')' ';' ;
+funciondeclaracion  : ID '.' FUNCIONCPARAM '(' ')'
+                    | ID '.' FUNCIONUNPARAM '('INT')'
+                    | ID '.' FUNCIONDOPARAM '('INT ',' INT')' ;
 
 funcion : ID '.' ADDEDGE '(' INT ',' INT')' ';'
-        | ID '.' ADDEDGE '(' INT ',' INT',' INT')' ';'
+        | ID '.' ADDEDGE '(' INT ',' INT',' (INT|DOUBLE)')' ';'
         | ID '.' DELETEEDGE '(' INT ',' INT')' ';' ;
 
 
@@ -52,12 +52,12 @@ FUNCIONCPARAM       :'getNumEdges'
                     | 'getEdges'
                     | 'getMatrix'
                     | 'getAllDistances'
-                    | 'getMinimunSpanningTree'
-                    | 'getMaximunSpanningTree'
+                    | 'getMinimumSpanningTree'
+                    | 'getMaximumSpanningTree'
                     | 'hasCycle'
                     | 'getSCC'
                     | 'getTopologicalOrder' ;
-FUNCIONUNPARAM       : 'getDistancesFromNode'
+FUNCIONUNPARAM       : 'getDistanceFromNode'
                     | 'BFS'
                     | 'DFS' ;
 FUNCIONDOPARAM      : 'getDistance'
