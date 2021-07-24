@@ -7,7 +7,9 @@ class DirectedGraph:
         self.nodes = numberOfNodes
         self.adjacencyList = []
         self.numberOfEdges = 0
-        self.adjacencyMatrix = [ [None] * numberOfNodes ] * numberOfNodes
+        self.adjacencyMatrix = []
+        for i in range(numberOfNodes):
+            self.adjacencyMatrix.append( [None] * self.nodes )
         for i in range(numberOfNodes):
             self.adjacencyList.append( [] )
 
@@ -27,6 +29,13 @@ class DirectedGraph:
                 self.numberOfEdges = self.numberOfEdges - 1
                 return True
         return False
+
+    def getEdges( self ):
+        allEdges = []
+        for node1 in range(self.nodes):
+            for node2 in self.adjacencyList[node1]:
+                allEdges.append( [node1,node2] )
+        return allEdges
     
     def BFS( self , node ):
         order = []
@@ -216,6 +225,8 @@ myGraph.addEdge( 1 , 4 )
 myGraph.addEdge( 3 , 2 )
 myGraph.addEdge( 3 , 1 )
 myGraph.addEdge( 4 , 3 )
+
+print("Edges:",myGraph.getEdges())
 
 print( "list->", myGraph.adjacencyList )
 

@@ -7,7 +7,9 @@ class UndirectedWeightedGraph:
         self.nodes = numberOfNodes
         self.adjacencyList = []
         self.numberOfEdges = 0
-        self.adjacencyMatrix = [ [None] * numberOfNodes ] * numberOfNodes
+        self.adjacencyMatrix = []
+        for i in range(numberOfNodes):
+            self.adjacencyMatrix.append( [None] * self.nodes )
         for i in range(numberOfNodes):
             self.adjacencyList.append( [] )
 
@@ -34,6 +36,16 @@ class UndirectedWeightedGraph:
                 self.numberOfEdges = self.numberOfEdges - 1
                 return True
         return False
+
+    def getEdges( self ):
+        allEdges = []
+        for node1 in range(self.nodes):
+            for edge in self.adjacencyList[node1]:
+                node2 = edge[0]
+                weight = edge[1]
+                if( node1 < node2 ):
+                    allEdges.append( [node1,node2,weight] )
+        return allEdges
 
     def BFS( self , node ):
         order = []
@@ -206,6 +218,8 @@ print( "list->", myGraph.adjacencyList )
 
 for x in myGraph.adjacencyList:
     print(x)
+
+print("Edges:",myGraph.getEdges())
 
 print( "dist: " , myGraph.minDistanceFromSourceToAll( 0 ) )
 
