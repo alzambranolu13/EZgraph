@@ -137,34 +137,34 @@ class UndirectedGraph:
         return distance
             
 
-myGraph = UndirectedGraph( 7 )
-myGraph.addEdge( 0 , 1 )
-myGraph.addEdge( 0 , 2 )
-myGraph.addEdge( 1 , 3 )
-myGraph.addEdge( 2 , 3 )
-myGraph.addEdge( 2 , 4 )
-myGraph.addEdge( 3 , 5 )
-myGraph.addEdge( 5 , 6 )
+# myGraph = UndirectedGraph( 7 )
+# myGraph.addEdge( 0 , 1 )
+# myGraph.addEdge( 0 , 2 )
+# myGraph.addEdge( 1 , 3 )
+# myGraph.addEdge( 2 , 3 )
+# myGraph.addEdge( 2 , 4 )
+# myGraph.addEdge( 3 , 5 )
+# myGraph.addEdge( 5 , 6 )
 
-print( "list->", myGraph.adjacencyList )
+# print( "list->", myGraph.adjacencyList )
 
-for x in myGraph.adjacencyList:
-    print(x)
+# for x in myGraph.adjacencyList:
+#     print(x)
 
-print("Edges ->",myGraph.getEdges())
+# print("Edges ->",myGraph.getEdges())
 
-print( "dist: " , myGraph.minDistanceFromSourceToAll( 0 ) )
+# print( "dist: " , myGraph.minDistanceFromSourceToAll( 0 ) )
 
-for x in range( myGraph.nodes ):
-    print( myGraph.minDistanceFromSourceToAll( x ) )
-print( "all: " , myGraph.minDistanceFromAllToAll(  ) )
+# for x in range( myGraph.nodes ):
+#     print( myGraph.minDistanceFromSourceToAll( x ) )
+# print( "all: " , myGraph.minDistanceFromAllToAll(  ) )
 
-print("pair: " , myGraph.minPairDistance(0,5))
-print("path: " , myGraph.minPath(0,5))
+# print("pair: " , myGraph.minPairDistance(0,5))
+# print("path: " , myGraph.minPath(0,5))
 
-print( myGraph.minDistanceFromSourceToAll( 0 ) )
-myGraph.deleteEdge( 1 , 3 )
-print( myGraph.minDistanceFromSourceToAll( 0 ) )
+# print( myGraph.minDistanceFromSourceToAll( 0 ) )
+# myGraph.deleteEdge( 1 , 3 )
+# print( myGraph.minDistanceFromSourceToAll( 0 ) )
 
-print( type(myGraph) == UndirectedGraph )
+# print( type(myGraph) == UndirectedGraph )
 

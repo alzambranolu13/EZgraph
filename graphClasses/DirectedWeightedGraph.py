@@ -256,67 +256,67 @@ class DirectedWeightedGraph:
         return components
     
 
-myGraph = DirectedWeightedGraph( 5 )
-myGraph.addEdge( 0 , 1 , -1 )
-myGraph.addEdge( 0 , 2 , 4 )
-myGraph.addEdge( 1 , 2 , 3 )
-myGraph.addEdge( 1 , 3 , 2 )
-myGraph.addEdge( 1 , 4 , 2 )
-myGraph.addEdge( 3 , 2 , 5 )
-myGraph.addEdge( 3 , 1 , 1 )
-myGraph.addEdge( 4 , 3 , -3 )
+# myGraph = DirectedWeightedGraph( 5 )
+# myGraph.addEdge( 0 , 1 , -1 )
+# myGraph.addEdge( 0 , 2 , 4 )
+# myGraph.addEdge( 1 , 2 , 3 )
+# myGraph.addEdge( 1 , 3 , 2 )
+# myGraph.addEdge( 1 , 4 , 2 )
+# myGraph.addEdge( 3 , 2 , 5 )
+# myGraph.addEdge( 3 , 1 , 1 )
+# myGraph.addEdge( 4 , 3 , -3 )
 
-print("Edges:",myGraph.getEdges())
+# print("Edges:",myGraph.getEdges())
 
-print( "list->", myGraph.adjacencyList )
+# print( "list->", myGraph.adjacencyList )
 
-for x in myGraph.adjacencyList:
-    print(x)
+# for x in myGraph.adjacencyList:
+#     print(x)
 
-print( "dist: " , myGraph.minDistanceFromSourceToAll( 0 ) )
+# print( "dist: " , myGraph.minDistanceFromSourceToAll( 0 ) )
 
-for x in range( myGraph.nodes ):
-    print( myGraph.minDistanceFromSourceToAll( x ) )
-print( "all: " , myGraph.minDistanceFromAllToAll(  ) )
+# for x in range( myGraph.nodes ):
+#     print( myGraph.minDistanceFromSourceToAll( x ) )
+# print( "all: " , myGraph.minDistanceFromAllToAll(  ) )
 
-print("pair: " , myGraph.minPairDistance(0,4))
-print("path: " , myGraph.minPath(0,4))
+# print("pair: " , myGraph.minPairDistance(0,4))
+# print("path: " , myGraph.minPath(0,4))
 
-print( myGraph.minDistanceFromSourceToAll( 0 ) )
-myGraph.deleteEdge( 0 , 1 )
-print( myGraph.minDistanceFromSourceToAll( 0 ) )
+# print( myGraph.minDistanceFromSourceToAll( 0 ) )
+# myGraph.deleteEdge( 0 , 1 )
+# print( myGraph.minDistanceFromSourceToAll( 0 ) )
 
 
-myGraph = DirectedWeightedGraph( 8 )
-myGraph.addEdge( 0 , 1 , 1 )
-myGraph.addEdge( 1 , 2 , 1 )
-myGraph.addEdge( 1 , 5 , 1 )
-myGraph.addEdge( 1 , 7 , 1 )
-myGraph.addEdge( 3 , 1 , 1 )
-myGraph.addEdge( 3 , 4 , 1 )
-myGraph.addEdge( 4 , 5 , 1 )
-myGraph.addEdge( 6 , 4 , 1 )
-myGraph.addEdge( 6 , 7 , 1 )
+# myGraph = DirectedWeightedGraph( 8 )
+# myGraph.addEdge( 0 , 1 , 1 )
+# myGraph.addEdge( 1 , 2 , 1 )
+# myGraph.addEdge( 1 , 5 , 1 )
+# myGraph.addEdge( 1 , 7 , 1 )
+# myGraph.addEdge( 3 , 1 , 1 )
+# myGraph.addEdge( 3 , 4 , 1 )
+# myGraph.addEdge( 4 , 5 , 1 )
+# myGraph.addEdge( 6 , 4 , 1 )
+# myGraph.addEdge( 6 , 7 , 1 )
 
-print( myGraph.topSort() )
-print("CYC:", myGraph.hasCycle() )
+# print( myGraph.topSort() )
+# print("CYC:", myGraph.hasCycle() )
 
-myGraph = DirectedWeightedGraph( 4 )
-myGraph.addEdge( 0 , 1 , 1 )
-myGraph.addEdge( 1 , 2 , 1 )
-myGraph.addEdge( 2 , 3 , 1 )
-myGraph.addEdge( 3 , 1 , 1 )
+# myGraph = DirectedWeightedGraph( 4 )
+# myGraph.addEdge( 0 , 1 , 1 )
+# myGraph.addEdge( 1 , 2 , 1 )
+# myGraph.addEdge( 2 , 3 , 1 )
+# myGraph.addEdge( 3 , 1 , 1 )
 
-print( "TopSort:" , myGraph.topSort() )
+# print( "TopSort:" , myGraph.topSort() )
 
-myGraph = DirectedWeightedGraph( 5 )
-myGraph.addEdge( 1 , 0 , 1 )
-myGraph.addEdge( 0 , 2 , 1 )
-myGraph.addEdge( 2 , 1 , 1 )
-myGraph.addEdge( 0 , 3 , 1 )
-myGraph.addEdge( 3 , 4 , 1 )
-print( "SCC:" , myGraph.SCC() )
+# myGraph = DirectedWeightedGraph( 5 )
+# myGraph.addEdge( 1 , 0 , 1 )
+# myGraph.addEdge( 0 , 2 , 1 )
+# myGraph.addEdge( 2 , 1 , 1 )
+# myGraph.addEdge( 0 , 3 , 1 )
+# myGraph.addEdge( 3 , 4 , 1 )
+# print( "SCC:" , myGraph.SCC() )
 
-print( myGraph.hasCycle() )
+# print( myGraph.hasCycle() )
 
-print( str(type(myGraph)) )
+# print( str(type(myGraph)) )
