@@ -60,7 +60,7 @@ class DirectedWeightedGraph:
         while( q.empty() == False ):
             currNode = q.get()
             order.append( currNode )
-            for edge in self.adjacencyList[node]:
+            for edge in self.adjacencyList[currNode]:
                 nextNode = edge[0]
                 if visited[nextNode] == False:
                     visited[nextNode] = True

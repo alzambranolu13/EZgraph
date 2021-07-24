@@ -58,7 +58,7 @@ class DirectedGraph:
         while( q.empty() == False ):
             currNode = q.get()
             order.append( currNode )
-            for nextNode in self.adjacencyList[node]:
+            for nextNode in self.adjacencyList[currNode]:
                 if visited[nextNode] == False:
                     visited[nextNode] = True
                     q.put( nextNode )

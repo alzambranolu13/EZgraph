@@ -65,7 +65,7 @@ class UndirectedGraph:
         while( q.empty() == False ):
             currNode = q.get()
             order.append( currNode )
-            for nextNode in self.adjacencyList[node]:
+            for nextNode in self.adjacencyList[currNode]:
                 if visited[nextNode] == False:
                     visited[nextNode] = True
                     q.put( nextNode )
@@ -179,4 +179,7 @@ class UndirectedGraph:
 # print( myGraph.minDistanceFromSourceToAll( 0 ) )
 
 # print( type(myGraph) == UndirectedGraph )
+
+# print(myGraph.BFS(0))
+# print(myGraph.DFS(0))
 
