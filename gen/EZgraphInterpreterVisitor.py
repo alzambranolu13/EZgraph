@@ -93,7 +93,7 @@ class EZgraphInterpreterVisitor(EZgraphVisitor):
                 #print(str(ctx.ID()))
                 return dicc_table[str(ctx.ID())]
             else:
-                #ERROR
+                self.Error()
                 pass
 
 
@@ -116,8 +116,7 @@ class EZgraphInterpreterVisitor(EZgraphVisitor):
             tipoGrafo = 'ND'
 
         if ( tipoGrafo == ''):
-            #ERROR
-            pass
+            self.Error(ctx.start.line,ctx.start.column)
 
         if (id in dicc_table):
             #print('entre')
@@ -139,31 +138,31 @@ class EZgraphInterpreterVisitor(EZgraphVisitor):
                         print('entre')
                         return graph.MinimumSpanningTree()
                     else:
-                        #ERROR
+                        self.Error(ctx.start.line,ctx.start.column)
                         pass
                 if funcion == 'getMaximumSpanningTree':
                     if tipoGrafo == 'NDW':
                         return graph.MaximumSpanningTree()
                     else:
-                        #ERROR
+                        self.Error(ctx.start.line,ctx.start.column)
                         pass
                 if funcion == 'hasCycle':
                     if tipoGrafo == 'D' or tipoGrafo == 'DW':
                         return graph.hasCycle()
                     else:
-                        #ERROR
+                        self.Error(ctx.start.line,ctx.start.column)
                         pass
                 if funcion == 'getSCC':
                     if tipoGrafo == 'D' or tipoGrafo == 'DW':
                         return graph.SCC()
                     else:
-                        #ERROR
+                        self.Error(ctx.start.line,ctx.start.column)
                         pass
                 if funcion == 'getTopologicalOrder':
                     if tipoGrafo == 'D' or tipoGrafo == 'DW':
                         return graph.topSort()
                     else:
-                        #ERROR
+                        self.Error(ctx.start.line,ctx.start.column)
                         pass
             elif (ctx.FUNCIONUNPARAM() != None):
                 #print('funcion1',ctx.FUNCIONUNPARAM())
@@ -186,7 +185,7 @@ class EZgraphInterpreterVisitor(EZgraphVisitor):
                 if funcion == 'getShortestPath':
                     return graph.minPath(node1, node2)
         else:
-            #ERROR
+            self.Error(ctx.start.line,ctx.start.column)
             pass
         print(graph.getEdges())
         print(dicc_table)
@@ -208,14 +207,14 @@ class EZgraphInterpreterVisitor(EZgraphVisitor):
             tipoGrafo = 'ND'
 
         if ( tipoGrafo == ''):
-            #ERROR
+            self.Error(ctx.start.line,ctx.start.column)
             pass
 
         weighted = False
         #print('len',len(ctx.INT()))
         if ctx.DOUBLE() != None or len(ctx.INT()) >= 3:
             if tipoGrafo == 'D' or tipoGrafo == 'ND':
-                #ERROR
+                self.Error(ctx.start.line,ctx.start.column)
                 pass
             else:
                 weighted = True
@@ -249,6 +248,12 @@ class EZgraphInterpreterVisitor(EZgraphVisitor):
             for i in range(inicial, final):
                 if ctx.exp() != None:
                     self.visitExp(ctx.exp())
+
+
+    def Error(self,line,column):
+        print('Error in line:', line, 'column:', column)
+        exit()
+
 
 
 
