@@ -26,10 +26,18 @@ class UndirectedWeightedGraph:
         return self.adjacencyMatrix
 
     def addEdge( self , node1 , node2 , weight ):
-        if( node1 < 0 or node1 >= self.nodes or node2 < 0 or node2 >= self.nodes ): return False
-        if( node1 == node2 ): return False
-        if( self.adjacencyMatrix[node1][node2] != None ): return False
-        if( self.adjacencyMatrix[node2][node1] != None ): return False
+        if( node1 < 0 or node1 >= self.nodes or node2 < 0 or node2 >= self.nodes ):
+            print("Error: Node index is out of bounds. Valid indexes are between 0 and",self.nodes)
+            exit()
+        if( node1 == node2 ):
+            print("Error: Self loops are not allowed")
+            exit()
+        if( self.adjacencyMatrix[node1][node2] != None ):
+            print("Error: Edge between",node1,"and",node2,"already exists")
+            exit()
+        if( self.adjacencyMatrix[node2][node1] != None ):
+            print("Error: Edge between",node2,"and",node1,"already exists")
+            exit()
         self.numberOfEdges = self.numberOfEdges + 1
         self.adjacencyMatrix[node1][node2] = weight
         self.adjacencyMatrix[node2][node1] = weight
@@ -38,7 +46,9 @@ class UndirectedWeightedGraph:
         return True
 
     def deleteEdge( self , node1, node2 ):
-        if( node1 < 0 or node1 >= self.nodes or node2 < 0 or node2 >= self.nodes ): return False
+        if( node1 < 0 or node1 >= self.nodes or node2 < 0 or node2 >= self.nodes ):
+            print("Error: Node index is out of bounds. Valid indexes are between 0 and",self.nodes)
+            exit()
         for edge in self.adjacencyList[node1]:
             if edge[0] == node2:
                 self.adjacencyList[node1].remove( edge )
@@ -49,7 +59,8 @@ class UndirectedWeightedGraph:
                 self.adjacencyMatrix[node2][node1] = None
                 self.numberOfEdges = self.numberOfEdges - 1
                 return True
-        return False
+        print("Error: Edge between",node1,"and",node2,"does not exist")
+        exit()
 
     def getEdges( self ):
         allEdges = []
@@ -62,6 +73,9 @@ class UndirectedWeightedGraph:
         return allEdges
 
     def BFS( self , node ):
+        if( node < 0 or node >= self.nodes ):
+            print("Error: Node index is out of bounds. Valid indexes are between 0 and",self.nodes)
+            exit()
         order = []
         visited = [False] * self.nodes
         q = queue.Queue()
@@ -78,6 +92,9 @@ class UndirectedWeightedGraph:
         return order
 
     def DFS( self , node ):
+        if( node < 0 or node >= self.nodes ):
+            print("Error: Node index is out of bounds. Valid indexes are between 0 and",self.nodes)
+            exit()
         order = []
         visited = [False] * self.nodes
         def DFSrecursion( node ):
@@ -93,6 +110,9 @@ class UndirectedWeightedGraph:
         return order
 
     def minDistanceFromSourceToAll( self , source ):
+        if( source < 0 or source >= self.nodes ):
+            print("Error: Node index is out of bounds. Valid indexes are between 0 and",self.nodes)
+            exit()
         if( source < 0 or source >= self.nodes ):
             return False
         distance = [ float('inf') ] * self.nodes
@@ -115,13 +135,15 @@ class UndirectedWeightedGraph:
 
     def minPairDistance( self , source , destination ):
         if( source < 0 or source >= self.nodes or destination < 0 or destination >= self.nodes ):
-            return False
+            print("Error: Node index is out of bounds. Valid indexes are between 0 and",self.nodes)
+            exit()
         distance = self.minDistanceFromSourceToAll( source )
         return distance[ destination ]
 
     def minPath( self , source , destination ):
         if( source < 0 or source >= self.nodes or destination < 0 or destination >= self.nodes ):
-            return False
+            print("Error: Node index is out of bounds. Valid indexes are between 0 and",self.nodes)
+            exit()
         distance = [ float('inf') ] * self.nodes
         distance[source] = 0
         previousNode = [-1] * self.nodes
@@ -194,6 +216,9 @@ class UndirectedWeightedGraph:
                 weight = edge[1]
                 if( visited[node3] == False ):
                     pq.put((weight , (node2,node3,weight) ))
+        if( tree.getEdges() != self.nodes-1 ):
+            print("Error: Graph is not connected, it is impossible to build a MST")
+            exit()
         return tree
 
     def MaximumSpanningTree( self ):
@@ -220,6 +245,9 @@ class UndirectedWeightedGraph:
                 weight = edge[1]
                 if( visited[node3] == False ):
                     pq.put((weight , (node2,node3,weight) ))
+        if( tree.getEdges() != self.nodes-1 ):
+            print("Error: Graph is not connected, it is impossible to build a MST")
+            exit()
         return tree
             
 
