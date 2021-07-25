@@ -228,12 +228,13 @@ class EZgraphInterpreterVisitor(EZgraphVisitor):
 
 
     def visitCiclo(self, ctx:EZgraphParser.CicloContext):
-        idx= ctx.ID()
+        global dicc_table
+        idx= str(ctx.ID())
         inicial= self.visitValue(ctx.value()[0])
         final = self.visitValue(ctx.value()[1])
-
         if type(inicial) == int and type(final) == int :
             for i in range(inicial, final):
+                dicc_table[idx] = i
                 if ctx.exp() != None:
                     self.visitExp(ctx.exp())
 
