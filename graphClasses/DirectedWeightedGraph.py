@@ -99,7 +99,8 @@ class DirectedWeightedGraph:
                 node2 = edge[0]
                 weight = edge[1]
                 if( distance[node2] > distance[node1] + weight ):
-                    return "Error: Negative Weight Cycle"
+                    print("Error: Negative Weight Cycle")
+                    exit()
         return distance
 
     def minPairDistance( self , source , destination ):
@@ -127,9 +128,11 @@ class DirectedWeightedGraph:
                 node2 = edge[0]
                 weight = edge[1]
                 if( distance[node2] > distance[node1] + weight ):
-                    return "Error: Negative Weight Cycle"
+                    print("Error: Negative Weight Cycle")
+                    exit()
         if( previousNode[destination] == -1 ):
-            return "Error: No path between the nodes"
+            print("Error: No path between the nodes")
+            exit()
         path = deque([destination])
         currentNode = destination
         while( currentNode != source ):
@@ -153,7 +156,8 @@ class DirectedWeightedGraph:
             for i in range( self.nodes ):
                 for j in range( self.nodes ):
                     if( distance[i][j] > distance[i][k] + distance[k][j] ):
-                        return "Error: Negative Weight Cycle"
+                        print("Error: Negative Weight Cycle")
+                        exit()
         return distance
 
     def hasCycle( self ):
@@ -220,7 +224,8 @@ class DirectedWeightedGraph:
                 if( inDegree[nextNode] == 0 ):
                     q.put( nextNode )
         if( len(topOrder) != self.nodes ):
-            return "Error: Not possible to construct a topological sort"
+            print("Error: Not possible to construct a topological sort")
+            exit()
         return topOrder
     
     def SCC( self ):
