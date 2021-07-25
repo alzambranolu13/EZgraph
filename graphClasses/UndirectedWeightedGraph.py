@@ -113,8 +113,6 @@ class UndirectedWeightedGraph:
         if( source < 0 or source >= self.nodes ):
             print("Error: Node index is out of bounds. Valid indexes are between 0 and",self.nodes)
             exit()
-        if( source < 0 or source >= self.nodes ):
-            return False
         distance = [ float('inf') ] * self.nodes
         distance[source] = 0
         for i in range( self.nodes-1 ):
