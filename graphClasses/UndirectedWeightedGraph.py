@@ -26,6 +26,7 @@ class UndirectedWeightedGraph:
         return self.adjacencyMatrix
 
     def addEdge( self , node1 , node2 , weight ):
+        if( node1 < 0 or node1 >= self.nodes or node2 < 0 or node2 >= self.nodes ): return False
         if( node1 == node2 ): return False
         if( self.adjacencyMatrix[node1][node2] != None ): return False
         if( self.adjacencyMatrix[node2][node1] != None ): return False
@@ -37,6 +38,7 @@ class UndirectedWeightedGraph:
         return True
 
     def deleteEdge( self , node1, node2 ):
+        if( node1 < 0 or node1 >= self.nodes or node2 < 0 or node2 >= self.nodes ): return False
         for edge in self.adjacencyList[node1]:
             if edge[0] == node2:
                 self.adjacencyList[node1].remove( edge )
