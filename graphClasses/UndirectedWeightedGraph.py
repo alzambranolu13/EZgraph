@@ -107,7 +107,8 @@ class UndirectedWeightedGraph:
                 node2 = edge[0]
                 weight = edge[1]
                 if( distance[node2] > distance[node1] + weight ):
-                    return "Error: Negative Weight Cycle"
+                    print("Error: Negative Weight Cycle")
+                    exit()
         return distance
 
     def minPairDistance( self , source , destination ):
@@ -135,9 +136,11 @@ class UndirectedWeightedGraph:
                 node2 = edge[0]
                 weight = edge[1]
                 if( distance[node2] > distance[node1] + weight ):
-                    return "Error: Negative Weight Cycle"
+                    print("Error: Negative Weight Cycle")
+                    exit()
         if( previousNode[destination] == -1 ):
-            return "Error: No path between the nodes"
+            print( "Error: No path between the nodes")
+            exit()
         path = deque([destination])
         currentNode = destination
         while( currentNode != source ):
@@ -161,7 +164,8 @@ class UndirectedWeightedGraph:
             for i in range( self.nodes ):
                 for j in range( self.nodes ):
                     if( distance[i][j] > distance[i][k] + distance[k][j] ):
-                        return "Error: Negative Weight Cycle"
+                        print( "Error: Negative Weight Cycle")
+                        exit()
         return distance
     
     def MinimumSpanningTree( self ):
@@ -258,5 +262,5 @@ class UndirectedWeightedGraph:
 # myGraph.addEdge( 4 , 5 , 7 )
 # myGraph.addEdge( 4 , 6 , 9 )
 
-# print("MST: " , myGraph.MinimumSpanningTree().adjacencyList)
-# print("CMP: " , myGraph.adjacencyList)
+# print("MST: " , myGraph.MaximumSpanningTree().getEdges())
+# print("CMP: " , myGraph.getEdges())
