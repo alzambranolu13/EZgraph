@@ -26,21 +26,32 @@ class DirectedGraph:
         return self.adjacencyMatrix
 
     def addEdge( self , node1 , node2 ):
-        if( node1 == node2 ): return False
-        if( self.adjacencyMatrix[node1][node2] != None ): return False
+        if( node1 < 0 or node1 >= self.nodes or node2 < 0 or node2 >= self.nodes ):
+            print("Error: Node index is out of bounds. Valid indexes are between 0 and",self.nodes)
+            exit()
+        if( node1 == node2 ):
+            print("Error: Self loops are not allowed")
+            exit()
+        if( self.adjacencyMatrix[node1][node2] != None ):
+            print("Error: Edge between",node1,"and",node2,"already exists")
+            exit()
         self.numberOfEdges = self.numberOfEdges + 1
         self.adjacencyMatrix[node1][node2] = 1
         self.adjacencyList[node1].append( node2 )
         return True
 
     def deleteEdge(self, node1, node2 ):
+        if( node1 < 0 or node1 >= self.nodes or node2 < 0 or node2 >= self.nodes ):
+            print("Error: Node index is out of bounds. Valid indexes are between 0 and",self.nodes)
+            exit()
         for edge in self.adjacencyList[node1]:
             if edge == node2:
                 self.adjacencyList[node1].remove( edge )
                 self.adjacencyMatrix[node1][node2] = None
                 self.numberOfEdges = self.numberOfEdges - 1
                 return True
-        return False
+        print("Error: Edge between",node1,"and",node2,"does not exist")
+        exit()
 
     def getEdges( self ):
         allEdges = []
@@ -50,6 +61,9 @@ class DirectedGraph:
         return allEdges
     
     def BFS( self , node ):
+        if( node < 0 or node >= self.nodes ):
+            print("Error: Node index is out of bounds. Valid indexes are between 0 and",self.nodes)
+            exit()
         order = []
         visited = [False] * self.nodes
         q = queue.Queue()
@@ -65,6 +79,9 @@ class DirectedGraph:
         return order
 
     def DFS( self , node ):
+        if( node < 0 or node >= self.nodes ):
+            print("Error: Node index is out of bounds. Valid indexes are between 0 and",self.nodes)
+            exit()
         order = []
         visited = [False] * self.nodes
         def DFSrecursion( node ):
@@ -80,7 +97,8 @@ class DirectedGraph:
 
     def minDistanceFromSourceToAll( self , source ):
         if( source < 0 or source >= self.nodes ):
-            return False
+            print("Error: Node index is out of bounds. Valid indexes are between 0 and",self.nodes)
+            exit()
         distance = [ float('inf') ] * self.nodes
         distance[source] = 0
         q = queue.Queue()
@@ -95,13 +113,15 @@ class DirectedGraph:
 
     def minPairDistance( self , source , destination ):
         if( source < 0 or source >= self.nodes or destination < 0 or destination >= self.nodes ):
-            return False
+            print("Error: Node index is out of bounds. Valid indexes are between 0 and",self.nodes)
+            exit()
         distance = self.minDistanceFromSourceToAll( source )
         return distance[ destination ]
 
     def minPath( self , source , destination ):
         if( source < 0 or source >= self.nodes or destination < 0 or destination >= self.nodes ):
-            return False
+            print("Error: Node index is out of bounds. Valid indexes are between 0 and",self.nodes)
+            exit()
         distance = [ float('inf') ] * self.nodes
         distance[source] = 0
         q = queue.Queue()
