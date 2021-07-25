@@ -5,5 +5,8 @@ myGraph.addEdge( 2 , 3 );
 myGraph.addEdge( 3 , 1 );
 myGraph.deleteEdge( 3 , 1 );
 
+myGraph.paint();
 
-print(myGraph.getMinimumSpanningTree());
+myGraph.addEdge( 0 , 3 );
+
+myGraph.paint();

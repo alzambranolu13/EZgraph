@@ -7,6 +7,7 @@ from graphClasses.DirectedGraph import DirectedGraph
 from graphClasses.UndirectedGraph import UndirectedGraph
 from graphClasses.DirectedWeightedGraph import DirectedWeightedGraph
 from graphClasses.UndirectedWeightedGraph import UndirectedWeightedGraph
+from plotting import paint as paint
 
 dicc_table={}
 class EZgraphInterpreterVisitor(EZgraphVisitor):
@@ -218,6 +219,11 @@ class EZgraphInterpreterVisitor(EZgraphVisitor):
 
 
     def visitPintar(self, ctx:EZgraphParser.PintarContext):
+        global dicc_table
+        
+        id = str(ctx.ID())
+        graph = dicc_table[id]
+        paint.paint_graph(graph)
         pass
 
 
