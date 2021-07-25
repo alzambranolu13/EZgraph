@@ -8,5 +8,8 @@ myGraph.deleteEdge( 3 , 1 );
 myGraph.paint();
 
 myGraph.addEdge( 0 , 3 );
+myGraph.addEdge( 0 , 3 );
+
+
 
 myGraph.paint();
