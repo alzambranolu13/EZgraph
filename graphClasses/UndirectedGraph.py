@@ -3,6 +3,9 @@ import queue
 
 class UndirectedGraph:
     def __init__( self , numberOfNodes ):
+        if( numberOfNodes <= 0 ):
+            print("Error: Number of nodes must be positive")
+            exit()
         self.nodes = numberOfNodes
         self.adjacencyList = []
         self.numberOfEdges = 0
