@@ -217,7 +217,7 @@ class UndirectedWeightedGraph:
                 weight = edge[1]
                 if( visited[node3] == False ):
                     pq.put((weight , (node2,node3,weight) ))
-        if( tree.getEdges() != self.nodes-1 ):
+        if( tree.getNumEdges() != self.nodes-1 ):
             print("Error: Graph is not connected, it is impossible to build a MST")
             exit()
         return tree
@@ -246,7 +246,7 @@ class UndirectedWeightedGraph:
                 weight = edge[1]
                 if( visited[node3] == False ):
                     pq.put((weight , (node2,node3,weight) ))
-        if( tree.getEdges() != self.nodes-1 ):
+        if( tree.getNumEdges() != self.nodes-1 ):
             print("Error: Graph is not connected, it is impossible to build a MST")
             exit()
         return tree
