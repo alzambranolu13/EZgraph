@@ -1,0 +1,21 @@
+print("Ingrese la cantidad de nodos:");
+read( nodes );
+print("Ingrese la cantidad de arcos:");
+read( edges );
+print("NODOS:");
+print( nodes );
+print("ARCOS:");
+print( edges );
+
+NDGraph myGraph[nodes]
+for i = 0:edges{
+    print("Ingrese el primer nodo del arco:");
+    read( a );
+    print("Ingrese el segundo nodo del arco:");
+    read( b );
+    myGraph.addEdge( a , b );
+}
+
+print("Arcos del grafo ingresado:");
+print( myGraph.getEdges() );
+myGraph.paint();

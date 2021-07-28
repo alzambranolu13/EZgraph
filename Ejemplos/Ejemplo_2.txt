@@ -1,0 +1,35 @@
+NDWGraph myGraph [7];
+myGraph.addEdge( 0 , 1 , 1 );
+myGraph.addEdge( 0 , 2 , 5 );
+myGraph.addEdge( 1 , 3 , 2 );
+myGraph.addEdge( 2 , 3 , 1 );
+myGraph.addEdge( 2 , 4 , 3.5 );
+myGraph.addEdge( 3 , 5 , 0.9 );
+myGraph.addEdge( 5 , 6 , 2 );
+
+print("Distancia desde 0:");
+print( myGraph.getDistanceFromNode(0) );
+print("Distancia entre 0 y 4:");
+print ( myGraph.getDistance(0,4) );
+print("Borramos el arco entre 3 y 2:");
+myGraph.deleteEdge( 3 , 2 );
+print("Distancia entre 0 y 4:");
+print ( myGraph.getDistance(0,4) );
+ 
+NDWGraph otherGraph [7];
+otherGraph.addEdge( 0 , 1 , 5 );
+otherGraph.addEdge( 0 , 2 , 1 );
+otherGraph.addEdge( 0 , 4 , 4 );
+otherGraph.addEdge( 1 , 4 , 8 );
+otherGraph.addEdge( 1 , 5 , 6 );
+otherGraph.addEdge( 2 , 3 , 3 );
+otherGraph.addEdge( 2 , 4 , 2 );
+otherGraph.addEdge( 3 , 5 , 8 );
+otherGraph.addEdge( 4 , 5 , 7 );
+otherGraph.addEdge( 4 , 6 , 9 );
+
+otherGraph.paint();
+
+minst = otherGraph.getMinimumSpanningTree();
+
+minst.paint();
