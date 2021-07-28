@@ -37,30 +37,55 @@ def render(app):
     view.close()
 
 def paint_graph(Graph):
-    numberOfEdges = Graph.getNumEdges()
+    numberOfEdges = Graph.getNodes()
     edges_ = Graph.getEdges()
     edges = []
     for edge in edges_:
         edges.append(tuple(edge))
 
-    if type(Graph) == "DirectedGraph" or "DirectedWeightedGraph":
+    if type(Graph) == DirectedGraph or DirectedWeightedGraph:
         g = nx.DiGraph()
-        if type(Graph) == "DirectedWeightedGraph":
-            g.add_weighted_edges_from(edges)
+        net = Network("500px", "500px", directed=True)
+        if type(Graph) == DirectedWeightedGraph:
+            #g.add_weighted_edges_from(edges)
+            
+            for n in range(0,numberOfEdges):
+                net.add_node(n, label="{}".format(str(n)))
+            for edge in edges:
+                title="{}".format(str(edge[2]))
+                net.add_edge(edge[0], edge[1],title=title)
         else:
-            g.add_edges_from(edges) 
+            
+            #g.add_edges_from(edges)
+            for n in range(0,numberOfEdges):
+                net.add_node(n, label="{}".format(str(n)))
+            for edge in edges:
+                net.add_edge(edge[0], edge[1])
+        
 
-    elif type(Graph) == "UndirectedGraph" or "UndirectedWeightedGraph":
+    elif type(Graph) == UndirectedGraph or UndirectedWeightedGraph:
         g = nx.Graph()
-        if type(Graph) == "UndirectedWeightedGraph":
-            g.add_weighted_edges_from(edges)
+        net = Network("500px", "500px")
+        if type(Graph) == UndirectedWeightedGraph:
+            #g.add_weighted_edges_from(edges)
+            for n in range(0,numberOfEdges):
+                net.add_node(n, label="{}".format(str(n)))
+            for edge in edges:
+                title="{}".format(str(edge[2]))
+                net.add_edge(edge[0], edge[1],title=title)
         else:
-            g.add_edges_from(edges)
+            for n in range(0,numberOfEdges):
+                net.add_node(n, label="{}".format(str(n)))
+            #g.add_edges_from(edges)
+            for edge in edges:
+                net.add_edge(edge[0], edge[1])
+        
 
-
-    net = Network("500px", "500px")
-    net.from_nx(g,default_node_size=16, default_edge_weight=5)
+    
+    
+    #net.from_nx(g,default_node_size=16, default_edge_weight=5)
     net.save_graph('nx.html')
+    
     suppress_qt_warnings()
     sys.argv.append("--disable-web-security")
     app = QApplication(sys.argv)
