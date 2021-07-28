@@ -7,7 +7,7 @@ print( nodes );
 print("ARCOS:");
 print( edges );
 
-NDGraph myGraph[nodes]
+NDGraph myGraph[nodes];
 for i = 0:edges{
     print("Ingrese el primer nodo del arco:");
     read( a );
