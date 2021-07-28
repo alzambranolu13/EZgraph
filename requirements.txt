@@ -1,0 +1,6 @@
+antlr4-python3-runtime
+matplotlib
+pyvis
+PyQtWebEngine
+PyQt5
+networkx
