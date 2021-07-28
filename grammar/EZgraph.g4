@@ -8,7 +8,7 @@ exp   : e exp
 e   : (declaracion | creacion  | leer | imprimir | ciclo | pintar | funcion );
 
 
-creacion    : TIPOGRAFO ID '[' INT ']' ';' ;
+creacion    : TIPOGRAFO ID '[' value ']' ';' ;
 
 
 declaracion         : ID '=' value ';' ;
@@ -19,19 +19,19 @@ leer    : 'read' '(' ID ')' ';';
 imprimir    : 'print' '(' value ')' ';';
 
 value   : funciondeclaracion
-        | STRING ';'
-        | INT ';'
-        | DOUBLE ';'
-        | BOOLEANO ';'
+        | STRING
+        | INT
+        | DOUBLE
+        | BOOLEANO
         | ID;
 
 funciondeclaracion  : ID '.' FUNCIONCPARAM '(' ')'
                     | ID '.' FUNCIONUNPARAM '('INT')'
                     | ID '.' FUNCIONDOPARAM '('INT ',' INT')' ;
 
-funcion : ID '.' ADDEDGE '(' INT ',' INT')' ';'
-        | ID '.' ADDEDGE '(' INT ',' INT',' (INT|DOUBLE)')' ';'
-        | ID '.' DELETEEDGE '(' INT ',' INT')' ';' ;
+funcion : ID '.' ADDEDGE '(' value ',' value')' ';'
+        | ID '.' ADDEDGE '(' value ',' value',' value')' ';'
+        | ID '.' DELETEEDGE '(' value ',' value')' ';' ;
 
 
 
@@ -43,8 +43,8 @@ COMMENT 		    : '/*' .*? '*/' -> skip ;
 LINE_COMMENT 	    : '//' ~[\r\n]* -> skip ;
 EASTEREGG           : '😊' .*? '😊 ' -> skip ;
 WS		            : [ \t\r\n]+ -> skip ;
-DOUBLE	            : [0-9]+([.][0-9]+);
-INT                 : [0-9]+;
+DOUBLE	            : [0-9]+([.][0-9]+) | '-'[0-9]+([.][0-9]+);
+INT                 : [0-9]+ | '-'[0-9]+;
 STRING              : '"' .*? '"';
 BOOLEANO            : ('true' | 'false');
 FUNCIONCPARAM       :'getNumEdges'

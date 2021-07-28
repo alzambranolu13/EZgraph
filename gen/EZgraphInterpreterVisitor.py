@@ -8,6 +8,7 @@ from graphClasses.UndirectedGraph import UndirectedGraph
 from graphClasses.DirectedWeightedGraph import DirectedWeightedGraph
 from graphClasses.UndirectedWeightedGraph import UndirectedWeightedGraph
 from plotting import paint as paint
+import re
 
 dicc_table={}
 class EZgraphInterpreterVisitor(EZgraphVisitor):
@@ -40,9 +41,16 @@ class EZgraphInterpreterVisitor(EZgraphVisitor):
 
     def visitLeer(self, ctx:EZgraphParser.LeerContext):
         global dicc_table
-        id = ctx.ID()
+        id = str(ctx.ID())
         val = input()
-        dicc_table[id] = val
+
+        if val.isdigit():
+            dicc_table[id] = int(val)
+        elif not(re.match(r'^-?\d+(?:\.\d+)$', val) is None):
+            dicc_table[id] = float(val)
+        else:
+            dicc_table[id] = val
+
 
     def visitImprimir(self, ctx:EZgraphParser.ImprimirContext):
         if ctx.value() != None:
@@ -52,7 +60,9 @@ class EZgraphInterpreterVisitor(EZgraphVisitor):
         global dicc_table
         tipo = str(ctx.TIPOGRAFO())
         id = str(ctx.ID())
-        size = int(str(ctx.INT()))
+        size = self.visitValue(ctx.value())
+        if not(str(size).isdigit()):
+            self.Error(ctx.start.line, ctx.start.column, "size of graph must be an integer")
 
         if ( tipo == 'NDGraph'):
             dicc_table[id]= UndirectedGraph(size)
@@ -76,9 +86,11 @@ class EZgraphInterpreterVisitor(EZgraphVisitor):
         if (ctx.funciondeclaracion() != None):
             return self.visitFunciondeclaracion(ctx.funciondeclaracion())
         elif (ctx.STRING() != None):
-            return ctx.STRING()
+            string = str(ctx.STRING())
+            string = string[1: len(string)-1]
+            return string
         elif (ctx.INT() != None):
-            return int(ctx.INT())
+            return int(str(ctx.INT()))
         elif (ctx.DOUBLE() != None):
             return float(ctx.DOUBLE())
         elif (ctx.BOOLEANO() != None):
@@ -90,13 +102,16 @@ class EZgraphInterpreterVisitor(EZgraphVisitor):
             if str(ctx.ID()) in dicc_table:
                 return dicc_table[str(ctx.ID())]
             else:
-                self.Error()
+                self.Error(ctx.start.line,ctx.start.column, "variable with id { } does not exist".format(str(ctx.ID())))
                 pass
 
 
     def visitFunciondeclaracion(self, ctx:EZgraphParser.FunciondeclaracionContext):
         global dicc_table
         id = str(ctx.ID())
+
+        if not(id in dicc_table):
+            self.Error(ctx.start.line, ctx.start.column, "variable with id {} does not exist".format(id))
 
         graph = dicc_table[id]
 
@@ -111,7 +126,7 @@ class EZgraphInterpreterVisitor(EZgraphVisitor):
             tipoGrafo = 'ND'
 
         if ( tipoGrafo == ''):
-            self.Error(ctx.start.line,ctx.start.column)
+            self.Error(ctx.start.line,ctx.start.column,"variable {} is not a graph type".format(graph))
 
         if (id in dicc_table):
             if ( ctx.FUNCIONCPARAM() != None):
@@ -130,31 +145,31 @@ class EZgraphInterpreterVisitor(EZgraphVisitor):
                     if tipoGrafo == 'NDW':
                         return graph.MinimumSpanningTree()
                     else:
-                        self.Error(ctx.start.line,ctx.start.column)
+                        self.Error(ctx.start.line,ctx.start.column, "variable {} must be of type NDWGraph".format(id))
                         pass
                 if funcion == 'getMaximumSpanningTree':
                     if tipoGrafo == 'NDW':
                         return graph.MaximumSpanningTree()
                     else:
-                        self.Error(ctx.start.line,ctx.start.column)
+                        self.Error(ctx.start.line,ctx.start.column, "variable {} must be of type NDWGraph".format(id))
                         pass
                 if funcion == 'hasCycle':
                     if tipoGrafo == 'D' or tipoGrafo == 'DW':
                         return graph.hasCycle()
                     else:
-                        self.Error(ctx.start.line,ctx.start.column)
+                        self.Error(ctx.start.line,ctx.start.column,"variable {} must be of type DWGraph or DGraph".format(id))
                         pass
                 if funcion == 'getSCC':
                     if tipoGrafo == 'D' or tipoGrafo == 'DW':
                         return graph.SCC()
                     else:
-                        self.Error(ctx.start.line,ctx.start.column)
+                        self.Error(ctx.start.line,ctx.start.column,"variable {} must be of type DWGraph or DGraph".format(id))
                         pass
                 if funcion == 'getTopologicalOrder':
                     if tipoGrafo == 'D' or tipoGrafo == 'DW':
                         return graph.topSort()
                     else:
-                        self.Error(ctx.start.line,ctx.start.column)
+                        self.Error(ctx.start.line,ctx.start.column,"variable {} must be of type DWGraph or DGraph".format(id))
                         pass
             elif (ctx.FUNCIONUNPARAM() != None):
                 funcion = str(ctx.FUNCIONUNPARAM())
@@ -174,13 +189,16 @@ class EZgraphInterpreterVisitor(EZgraphVisitor):
                 if funcion == 'getShortestPath':
                     return graph.minPath(node1, node2)
         else:
-            self.Error(ctx.start.line,ctx.start.column)
+            self.Error(ctx.start.line,ctx.start.column, "variable with id {} does not exist".format(id))
             pass
 
 
     def visitFuncion(self, ctx:EZgraphParser.FuncionContext):
         global dicc_table
         id = str(ctx.ID())
+        if not(id in dicc_table):
+            self.Error(ctx.start.line, ctx.start.column, "variable with id {} does not exist".format(id))
+
         graph = dicc_table[id]
         tipoGrafo = ''
         if type(graph) == UndirectedWeightedGraph:
@@ -193,29 +211,26 @@ class EZgraphInterpreterVisitor(EZgraphVisitor):
             tipoGrafo = 'ND'
 
         if ( tipoGrafo == ''):
-            self.Error(ctx.start.line,ctx.start.column)
+            self.Error(ctx.start.line,ctx.start.column, 'variable {} is not a graph type'.format(id))
             pass
 
         weighted = False
-        if ctx.DOUBLE() != None or len(ctx.INT()) >= 3:
+        if len(ctx.value()) >= 3:
             if tipoGrafo == 'D' or tipoGrafo == 'ND':
-                self.Error(ctx.start.line,ctx.start.column)
+                self.Error(ctx.start.line,ctx.start.column,"variable {} must be of type DWGraph or NDWGraph".format(id))
                 pass
             else:
                 weighted = True
-
+        node1 = self.visitValue(ctx.value()[0])
+        node2 = self.visitValue(ctx.value()[1])
         if (ctx.ADDEDGE() != None):
             if weighted == True:
-                if ( ctx.DOUBLE() != None):
-                    peso = float(str(ctx.DOUBLE()))
-                else:
-                    peso = int(str(ctx.INT()[2]))
-
-                graph.addEdge(int(str(ctx.INT()[0])), int(str(ctx.INT()[1])), peso)
+                peso = self.visitValue(ctx.value()[2])
+                graph.addEdge(node1, node2, peso)
             else:
-                graph.addEdge(int(str(ctx.INT()[0])), int(str(ctx.INT()[1])))
+                graph.addEdge(node1, node2)
         elif (ctx.DELETEEDGE() != None):
-            graph.deleteEdge(int(str(ctx.INT()[0])), int(str(ctx.INT()[1])))
+            graph.deleteEdge(node1, node2)
 
 
     def visitPintar(self, ctx:EZgraphParser.PintarContext):
@@ -239,9 +254,9 @@ class EZgraphInterpreterVisitor(EZgraphVisitor):
                     self.visitExp(ctx.exp())
 
 
-    def Error(self,line,column):
-        print('Error in line:', line, 'column:', column)
-        exit()
+    def Error(self,line,column,text):
+        print('Error in line:', line, 'column:', column,text)
+        exit(0)
 
 
 

@@ -1,15 +1,14 @@
-DGraph myGraph  [4];
-myGraph.addEdge( 0 , 1 );
-myGraph.addEdge( 1 , 2 );
-myGraph.addEdge( 2 , 3 );
-myGraph.addEdge( 3 , 1 );
-myGraph.deleteEdge( 3 , 1 );
+read( nodes );
+read( edges );
+print(nodes);
+print(edges);
+NDGraph myGraph[nodes];
 
-myGraph.paint();
+for i = 0:edges{
+    read( a );
+    read( b );
+    myGraph.addEdge(a,b);
+}
 
-myGraph.addEdge( 0 , 3 );
-myGraph.addEdge( 0 , 3 );
-
-
-
+print( myGraph.getEdges() );
 myGraph.paint();
