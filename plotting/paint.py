@@ -10,15 +10,15 @@ from graphClasses.UndirectedGraph import UndirectedGraph
 from graphClasses.DirectedWeightedGraph import DirectedWeightedGraph
 from graphClasses.UndirectedWeightedGraph import UndirectedWeightedGraph
 
-
-
 from os import environ
+
 
 def suppress_qt_warnings():
     environ["QT_DEVICE_PIXEL_RATIO"] = "0"
     environ["QT_AUTO_SCREEN_SCALE_FACTOR"] = "1"
     environ["QT_SCREEN_SCALE_FACTORS"] = "1"
     environ["QT_SCALE_FACTOR"] = "1"
+
 
 def render(app):
     app.setStyle('Breeze')
@@ -32,9 +32,10 @@ def render(app):
     view.setFixedHeight(heigth)
     view.load(html)
     view.show()
-    
+
     app.exec()
     view.close()
+
 
 def paint_graph(Graph):
     numberOfEdges = Graph.getNodes()
@@ -47,59 +48,47 @@ def paint_graph(Graph):
         g = nx.DiGraph()
         net = Network("500px", "500px", directed=True)
         if type(Graph) == DirectedWeightedGraph:
-            #g.add_weighted_edges_from(edges)
-            
-            for n in range(0,numberOfEdges):
+            # g.add_weighted_edges_from(edges)
+
+            for n in range(0, numberOfEdges):
                 net.add_node(n, label="{}".format(str(n)))
             for edge in edges:
-                title="{}".format(str(edge[2]))
-                net.add_edge(edge[0], edge[1],title=title)
+                title = "{}".format(str(edge[2]))
+                net.add_edge(edge[0], edge[1], title=title)
         else:
-            
-            #g.add_edges_from(edges)
-            for n in range(0,numberOfEdges):
+
+            # g.add_edges_from(edges)
+            for n in range(0, numberOfEdges):
                 net.add_node(n, label="{}".format(str(n)))
             for edge in edges:
                 net.add_edge(edge[0], edge[1])
-        
+
 
     elif type(Graph) == UndirectedGraph or UndirectedWeightedGraph:
         g = nx.Graph()
         net = Network("500px", "500px")
         if type(Graph) == UndirectedWeightedGraph:
-            #g.add_weighted_edges_from(edges)
-            for n in range(0,numberOfEdges):
+            # g.add_weighted_edges_from(edges)
+            for n in range(0, numberOfEdges):
                 net.add_node(n, label="{}".format(str(n)))
             for edge in edges:
-                title="{}".format(str(edge[2]))
-                net.add_edge(edge[0], edge[1],title=title)
+                title = "{}".format(str(edge[2]))
+                net.add_edge(edge[0], edge[1], title=title)
         else:
-            for n in range(0,numberOfEdges):
+            for n in range(0, numberOfEdges):
                 net.add_node(n, label="{}".format(str(n)))
-            #g.add_edges_from(edges)
+            # g.add_edges_from(edges)
             for edge in edges:
                 net.add_edge(edge[0], edge[1])
-        
 
-    
-    
-    #net.from_nx(g,default_node_size=16, default_edge_weight=5)
+    # net.from_nx(g,default_node_size=16, default_edge_weight=5)
     net.save_graph('nx.html')
-    
+
     suppress_qt_warnings()
     sys.argv.append("--disable-web-security")
     app = QApplication(sys.argv)
     render(app)
-       
 
+    nx.draw_planar(g, with_labels=True)
 
-    nx.draw_planar(g, with_labels = True)
-    
-    
-
-    
-    #view.close()
-    
-    
-    
-    
+    # view.close()

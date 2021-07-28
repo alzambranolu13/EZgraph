@@ -92,7 +92,7 @@ class EZgraphInterpreterVisitor(EZgraphVisitor):
         elif (ctx.INT() != None):
             return int(str(ctx.INT()))
         elif (ctx.DOUBLE() != None):
-            return float(ctx.DOUBLE())
+            return float(str(ctx.DOUBLE()))
         elif (ctx.BOOLEANO() != None):
             if (ctx.BOOLEANO() == "true"):
                 return True
