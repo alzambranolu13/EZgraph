@@ -31,7 +31,5 @@ otherGraph.addEdge( 4 , 6 , 9 );
 otherGraph.paint();
 
 minst = otherGraph.getMinimumSpanningTree();
-maxst = otherGraph.getMaximumSpanningTree();
 
 minst.paint();
-maxst.paint();
