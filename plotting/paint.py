@@ -44,7 +44,7 @@ def paint_graph(Graph):
     for edge in edges_:
         edges.append(tuple(edge))
 
-    if type(Graph) == DirectedGraph or DirectedWeightedGraph:
+    if type(Graph) == DirectedGraph or type(Graph) == DirectedWeightedGraph:
         g = nx.DiGraph()
         net = Network("500px", "500px", directed=True)
         if type(Graph) == DirectedWeightedGraph:
@@ -54,7 +54,7 @@ def paint_graph(Graph):
                 net.add_node(n, label="{}".format(str(n)))
             for edge in edges:
                 title = "{}".format(str(edge[2]))
-                net.add_edge(edge[0], edge[1], title=title)
+                net.add_edge(edge[0], edge[1], label=title)
         else:
 
             # g.add_edges_from(edges)
@@ -64,7 +64,7 @@ def paint_graph(Graph):
                 net.add_edge(edge[0], edge[1])
 
 
-    elif type(Graph) == UndirectedGraph or UndirectedWeightedGraph:
+    elif type(Graph) == UndirectedGraph or type(Graph) == UndirectedWeightedGraph:
         g = nx.Graph()
         net = Network("500px", "500px")
         if type(Graph) == UndirectedWeightedGraph:
@@ -73,7 +73,7 @@ def paint_graph(Graph):
                 net.add_node(n, label="{}".format(str(n)))
             for edge in edges:
                 title = "{}".format(str(edge[2]))
-                net.add_edge(edge[0], edge[1], title=title)
+                net.add_edge(edge[0], edge[1], label=title)
         else:
             for n in range(0, numberOfEdges):
                 net.add_node(n, label="{}".format(str(n)))
